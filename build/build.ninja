@@ -191,7 +191,7 @@ build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depen
 
 build libraries/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: CXX_COMPILER__gmock_Debug /home/nboe/projects/Neos/libraries/googletest/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
   DEP_FILE = libraries/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o.d
-  FLAGS = -g -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++14
+  FLAGS = -g -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
   INCLUDES = -I/home/nboe/projects/Neos/libraries/googletest/googlemock/include -I/home/nboe/projects/Neos/libraries/googletest/googlemock -isystem /home/nboe/projects/Neos/libraries/googletest/googletest/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest
   OBJECT_DIR = libraries/googletest/googlemock/CMakeFiles/gmock.dir
   OBJECT_FILE_DIR = libraries/googletest/googlemock/CMakeFiles/gmock.dir/src
@@ -223,7 +223,7 @@ build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_
 
 build libraries/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: CXX_COMPILER__gmock_main_Debug /home/nboe/projects/Neos/libraries/googletest/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
   DEP_FILE = libraries/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o.d
-  FLAGS = -g -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++14
+  FLAGS = -g -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
   INCLUDES = -isystem /home/nboe/projects/Neos/libraries/googletest/googlemock/include -isystem /home/nboe/projects/Neos/libraries/googletest/googlemock -isystem /home/nboe/projects/Neos/libraries/googletest/googletest/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest
   OBJECT_DIR = libraries/googletest/googlemock/CMakeFiles/gmock_main.dir
   OBJECT_FILE_DIR = libraries/googletest/googlemock/CMakeFiles/gmock_main.dir/src
@@ -325,7 +325,7 @@ build cmake_object_order_depends_target_gtest: phony || libraries/googletest/goo
 
 build libraries/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: CXX_COMPILER__gtest_Debug /home/nboe/projects/Neos/libraries/googletest/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
   DEP_FILE = libraries/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d
-  FLAGS = -g -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++14
+  FLAGS = -g -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
   INCLUDES = -I/home/nboe/projects/Neos/libraries/googletest/googletest/include -I/home/nboe/projects/Neos/libraries/googletest/googletest
   OBJECT_DIR = libraries/googletest/googletest/CMakeFiles/gtest.dir
   OBJECT_FILE_DIR = libraries/googletest/googletest/CMakeFiles/gtest.dir/src
@@ -357,7 +357,7 @@ build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_
 
 build libraries/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: CXX_COMPILER__gtest_main_Debug /home/nboe/projects/Neos/libraries/googletest/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
   DEP_FILE = libraries/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.d
-  FLAGS = -g -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++14
+  FLAGS = -g -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
   INCLUDES = -isystem /home/nboe/projects/Neos/libraries/googletest/googletest/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest
   OBJECT_DIR = libraries/googletest/googletest/CMakeFiles/gtest_main.dir
   OBJECT_FILE_DIR = libraries/googletest/googletest/CMakeFiles/gtest_main.dir/src
@@ -873,21 +873,21 @@ build cmake_object_order_depends_target_NeosUnitTests: phony || cmake_object_ord
 
 build neos/test/CMakeFiles/NeosUnitTests.dir/LinkedListTest.cpp.o: CXX_COMPILER__NeosUnitTests_Debug /home/nboe/projects/Neos/neos/test/LinkedListTest.cpp || cmake_object_order_depends_target_NeosUnitTests
   DEP_FILE = neos/test/CMakeFiles/NeosUnitTests.dir/LinkedListTest.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/nboe/projects/Neos/neos/slotsAndSignals/include -I/home/nboe/projects/Neos/neos/dataStructures/linkedList/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest
   OBJECT_DIR = neos/test/CMakeFiles/NeosUnitTests.dir
   OBJECT_FILE_DIR = neos/test/CMakeFiles/NeosUnitTests.dir
 
 build neos/test/CMakeFiles/NeosUnitTests.dir/SlotsAndSignalsTest.cpp.o: CXX_COMPILER__NeosUnitTests_Debug /home/nboe/projects/Neos/neos/test/SlotsAndSignalsTest.cpp || cmake_object_order_depends_target_NeosUnitTests
   DEP_FILE = neos/test/CMakeFiles/NeosUnitTests.dir/SlotsAndSignalsTest.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/nboe/projects/Neos/neos/slotsAndSignals/include -I/home/nboe/projects/Neos/neos/dataStructures/linkedList/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest
   OBJECT_DIR = neos/test/CMakeFiles/NeosUnitTests.dir
   OBJECT_FILE_DIR = neos/test/CMakeFiles/NeosUnitTests.dir
 
 build neos/test/CMakeFiles/NeosUnitTests.dir/main.cpp.o: CXX_COMPILER__NeosUnitTests_Debug /home/nboe/projects/Neos/neos/test/main.cpp || cmake_object_order_depends_target_NeosUnitTests
   DEP_FILE = neos/test/CMakeFiles/NeosUnitTests.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/nboe/projects/Neos/neos/slotsAndSignals/include -I/home/nboe/projects/Neos/neos/dataStructures/linkedList/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest
   OBJECT_DIR = neos/test/CMakeFiles/NeosUnitTests.dir
   OBJECT_FILE_DIR = neos/test/CMakeFiles/NeosUnitTests.dir

@@ -32,8 +32,10 @@ class LinkedList
 {
 public:
 
-    // Constructor
-    LinkedList(): m_head(nullptr), m_list_lenght(0){};
+    /**
+     * @brief Create a empty LinkedList
+    */
+    LinkedList(): m_head(nullptr), m_listLenght(0){};
     ~LinkedList();
 
     /**
@@ -42,14 +44,25 @@ public:
      * **/
     bool save(T value);
 
-    // get the first element of list
+    /**
+     * @brief Get the first element
+     * @return the first element, nullptr if no element exist
+    */
     T getFront();
 
-    // get current list length
+    /**
+     * @brief Get the length of the List
+     * @return A size_t of the length
+    */
     size_t getLen();
 
-    // remove item from list, return uint32_t
-    bool remove(uint64_t value);
+    /**
+     * @brief RemoveID from the list
+     * @details This removes a id from the List. When multiple ids are found
+     *            only the first is removed from the list 
+     * @return succesfull?
+     * */    
+    bool removeID(uint64_t id);
 
 protected:
     ListElement<T>* m_head;
@@ -84,7 +97,7 @@ bool LinkedList<T>::save(T value)
         return false;
     }
     
-    p_mem_elem -> data = value;
+    p_memElem -> data = value;
 
     // insert first element
     if (m_head == nullptr)
@@ -100,7 +113,7 @@ bool LinkedList<T>::save(T value)
     // go through the list until we reach the null
     while (p_tmpHead != nullptr)
     {
-        if (p_tmpHhead -> next == nullptr)
+        if (p_tmpHead -> next == nullptr)
         {
             p_tmpHead -> next = p_memElem;
             this -> m_listLenght++;
@@ -111,6 +124,8 @@ bool LinkedList<T>::save(T value)
     // we shouldn't get here...
     return false;
 }
+
+
 
 template<class T>
 T LinkedList<T>::getFront()
@@ -124,7 +139,8 @@ T LinkedList<T>::getFront()
         this -> m_listLenght--;
         return ret;
     }
-    // somethings missing here :D ...
+    //what do we do when none ?
+    //return nullptr;
 }
 
 template<class T>
@@ -134,12 +150,12 @@ size_t LinkedList<T>::getLen()
 }
 
 template<class T>
-bool LinkedList<T>::remove(uint64_t id)
+bool LinkedList<T>::removeID(uint64_t id)
 {
     // get the id of the value     
     
     ListElement<T>* p_tmpCurr = m_head;
-    ListElement<T>* p_tmpPrev = m_head;
+    ListElement<T>* p_tmpNxt = nullptr;
     while (p_tmpCurr != nullptr)
     {
         uint64_t elemId = *((uint64_t*)(&(p_tmpCurr -> data)));
@@ -147,12 +163,14 @@ bool LinkedList<T>::remove(uint64_t id)
         {
             // rearrange list
             // and free the no longer needed memory
-            p_tmpPrev -> next  = p_tmpCurr -> next;
+            p_tmpNxt -> next  = p_tmpCurr -> next;
+
+            delete p_tmpCurr; 
             this -> m_listLenght--;
             return true;
         }
 
-        p_tmpPrev = p_tmpCurr;
+        p_tmpNxt = p_tmpCurr;
         p_tmpCurr = p_tmpCurr->next;
     }
     return false;

@@ -16,7 +16,6 @@ public:
     uint64_t get_id();
 
 private:
-    //void (*m_func)(T);
     std::function<void (T)>m_func;
 };
 
@@ -65,19 +64,19 @@ void Signal<T>::connect(std::function<void(T)> s)
 template<class T>
 void Signal<T>::disconnect(Slot<T> s)
 {
-    this -> remove(s.get_id());
+    this -> removeID(s.get_id());
 }
 
 template<class T>
 void Signal<T>::emit(T value)
 {
     
-    ListElement<Slot<T>>* p_tmp_head = this -> m_head;
+    ListElement<Slot<T>>* p_tmpHead = this -> m_head;
 
-    while (p_tmp_head != nullptr)
+    while (p_tmpHead != nullptr)
     {
-        p_tmp_head -> data.call(value);
-        p_tmp_head = p_tmp_head -> next;
+        p_tmpHead -> data.call(value);
+        p_tmpHead = p_tmpHead -> next;
     }
 
 }

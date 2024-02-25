@@ -301,6 +301,15 @@ Neos_IS_TOP_LEVEL:STATIC=ON
 Neos_SOURCE_DIR:STATIC=/home/nboe/projects/Neos
 
 //Value Computed by CMake
+SlotsAndSignals_BINARY_DIR:STATIC=/home/nboe/projects/Neos/build/neos/slotsAndSignals
+
+//Value Computed by CMake
+SlotsAndSignals_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+SlotsAndSignals_SOURCE_DIR:STATIC=/home/nboe/projects/Neos/neos/slotsAndSignals
+
+//Value Computed by CMake
 gmock_BINARY_DIR:STATIC=/home/nboe/projects/Neos/build/libraries/googletest/googlemock
 
 //Value Computed by CMake
@@ -481,7 +490,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

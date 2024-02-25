@@ -251,7 +251,10 @@
 			"path" : "neos/dataStructures/linkedList/CMakeLists.txt"
 		},
 		{
-			"path" : "neos/dataStructures/linkedList/test/CMakeLists.txt"
+			"path" : "neos/slotsAndSignals/CMakeLists.txt"
+		},
+		{
+			"path" : "neos/test/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

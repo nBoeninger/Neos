@@ -26,7 +26,22 @@
 },
 {
   "directory": "/home/nboe/projects/Neos/build",
-  "command": "/usr/bin/c++ -I/home/nboe/projects/Neos/neos/dataStructures/linkedList/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest -g -std=gnu++14 -o neos/dataStructures/linkedList/test/CMakeFiles/LinkedListTest.dir/LinkedListTest.cpp.o -c /home/nboe/projects/Neos/neos/dataStructures/linkedList/test/LinkedListTest.cpp",
-  "file": "/home/nboe/projects/Neos/neos/dataStructures/linkedList/test/LinkedListTest.cpp"
+  "command": "/usr/bin/c++ -I/home/nboe/projects/Neos/neos/slotsAndSignals/include -I/home/nboe/projects/Neos/neos/dataStructures/linkedList/include -g -std=gnu++14 -o neos/slotsAndSignals/CMakeFiles/SlotsAndSignals.dir/src/signals.cpp.o -c /home/nboe/projects/Neos/neos/slotsAndSignals/src/signals.cpp",
+  "file": "/home/nboe/projects/Neos/neos/slotsAndSignals/src/signals.cpp"
+},
+{
+  "directory": "/home/nboe/projects/Neos/build",
+  "command": "/usr/bin/c++ -I/home/nboe/projects/Neos/neos/slotsAndSignals/include -I/home/nboe/projects/Neos/neos/dataStructures/linkedList/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest -g -std=gnu++14 -o neos/test/CMakeFiles/NeosUnitTests.dir/LinkedListTest.cpp.o -c /home/nboe/projects/Neos/neos/test/LinkedListTest.cpp",
+  "file": "/home/nboe/projects/Neos/neos/test/LinkedListTest.cpp"
+},
+{
+  "directory": "/home/nboe/projects/Neos/build",
+  "command": "/usr/bin/c++ -I/home/nboe/projects/Neos/neos/slotsAndSignals/include -I/home/nboe/projects/Neos/neos/dataStructures/linkedList/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest -g -std=gnu++14 -o neos/test/CMakeFiles/NeosUnitTests.dir/SlotsAndSignalsTest.cpp.o -c /home/nboe/projects/Neos/neos/test/SlotsAndSignalsTest.cpp",
+  "file": "/home/nboe/projects/Neos/neos/test/SlotsAndSignalsTest.cpp"
+},
+{
+  "directory": "/home/nboe/projects/Neos/build",
+  "command": "/usr/bin/c++ -I/home/nboe/projects/Neos/neos/slotsAndSignals/include -I/home/nboe/projects/Neos/neos/dataStructures/linkedList/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest -g -std=gnu++14 -o neos/test/CMakeFiles/NeosUnitTests.dir/main.cpp.o -c /home/nboe/projects/Neos/neos/test/main.cpp",
+  "file": "/home/nboe/projects/Neos/neos/test/main.cpp"
 }
 ]

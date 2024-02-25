@@ -757,113 +757,231 @@ build neos/dataStructures/linkedList/install/strip: phony neos/dataStructures/li
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# /home/nboe/projects/Neos/neos/dataStructures/linkedList/CMakeLists.txt
+# /home/nboe/projects/Neos/neos/CMakeLists.txt
 # =============================================================================
 
 # =============================================================================
-# Object build statements for EXECUTABLE target LinkedListTest
+# Object build statements for STATIC_LIBRARY target SlotsAndSignals
 
 
 #############################################
-# Order-only phony target for LinkedListTest
+# Order-only phony target for SlotsAndSignals
 
-build cmake_object_order_depends_target_LinkedListTest: phony || cmake_object_order_depends_target_LinkedList cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+build cmake_object_order_depends_target_SlotsAndSignals: phony || cmake_object_order_depends_target_LinkedList
 
-build neos/dataStructures/linkedList/test/CMakeFiles/LinkedListTest.dir/LinkedListTest.cpp.o: CXX_COMPILER__LinkedListTest_Debug /home/nboe/projects/Neos/neos/dataStructures/linkedList/test/LinkedListTest.cpp || cmake_object_order_depends_target_LinkedListTest
-  DEP_FILE = neos/dataStructures/linkedList/test/CMakeFiles/LinkedListTest.dir/LinkedListTest.cpp.o.d
+build neos/slotsAndSignals/CMakeFiles/SlotsAndSignals.dir/src/signals.cpp.o: CXX_COMPILER__SlotsAndSignals_Debug /home/nboe/projects/Neos/neos/slotsAndSignals/src/signals.cpp || cmake_object_order_depends_target_SlotsAndSignals
+  DEP_FILE = neos/slotsAndSignals/CMakeFiles/SlotsAndSignals.dir/src/signals.cpp.o.d
   FLAGS = -g -std=gnu++14
-  INCLUDES = -I/home/nboe/projects/Neos/neos/dataStructures/linkedList/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest
-  OBJECT_DIR = neos/dataStructures/linkedList/test/CMakeFiles/LinkedListTest.dir
-  OBJECT_FILE_DIR = neos/dataStructures/linkedList/test/CMakeFiles/LinkedListTest.dir
+  INCLUDES = -I/home/nboe/projects/Neos/neos/slotsAndSignals/include -I/home/nboe/projects/Neos/neos/dataStructures/linkedList/include
+  OBJECT_DIR = neos/slotsAndSignals/CMakeFiles/SlotsAndSignals.dir
+  OBJECT_FILE_DIR = neos/slotsAndSignals/CMakeFiles/SlotsAndSignals.dir/src
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target LinkedListTest
+# Link build statements for STATIC_LIBRARY target SlotsAndSignals
 
 
 #############################################
-# Link the executable neos/dataStructures/linkedList/test/LinkedListTest
+# Link the static library neos/slotsAndSignals/libSlotsAndSignals.a
 
-build neos/dataStructures/linkedList/test/LinkedListTest: CXX_EXECUTABLE_LINKER__LinkedListTest_Debug neos/dataStructures/linkedList/test/CMakeFiles/LinkedListTest.dir/LinkedListTest.cpp.o | lib/libgtest_main.a neos/dataStructures/linkedList/libLinkedList.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a neos/dataStructures/linkedList/libLinkedList.a
-  FLAGS = -g
-  LINK_LIBRARIES = lib/libgtest_main.a  neos/dataStructures/linkedList/libLinkedList.a  lib/libgtest.a
-  OBJECT_DIR = neos/dataStructures/linkedList/test/CMakeFiles/LinkedListTest.dir
+build neos/slotsAndSignals/libSlotsAndSignals.a: CXX_STATIC_LIBRARY_LINKER__SlotsAndSignals_Debug neos/slotsAndSignals/CMakeFiles/SlotsAndSignals.dir/src/signals.cpp.o || neos/dataStructures/linkedList/libLinkedList.a
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = neos/slotsAndSignals/CMakeFiles/SlotsAndSignals.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = neos/dataStructures/linkedList/test/LinkedListTest
-  TARGET_PDB = LinkedListTest.dbg
+  TARGET_FILE = neos/slotsAndSignals/libSlotsAndSignals.a
+  TARGET_PDB = SlotsAndSignals.a.dbg
 
 
 #############################################
 # Utility command for edit_cache
 
-build neos/dataStructures/linkedList/test/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/nboe/projects/Neos/build/neos/dataStructures/linkedList/test && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+build neos/slotsAndSignals/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/nboe/projects/Neos/build/neos/slotsAndSignals && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
-build neos/dataStructures/linkedList/test/edit_cache: phony neos/dataStructures/linkedList/test/CMakeFiles/edit_cache.util
+build neos/slotsAndSignals/edit_cache: phony neos/slotsAndSignals/CMakeFiles/edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build neos/dataStructures/linkedList/test/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/nboe/projects/Neos/build/neos/dataStructures/linkedList/test && /usr/bin/cmake --regenerate-during-build -S/home/nboe/projects/Neos -B/home/nboe/projects/Neos/build
+build neos/slotsAndSignals/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/nboe/projects/Neos/build/neos/slotsAndSignals && /usr/bin/cmake --regenerate-during-build -S/home/nboe/projects/Neos -B/home/nboe/projects/Neos/build
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build neos/dataStructures/linkedList/test/rebuild_cache: phony neos/dataStructures/linkedList/test/CMakeFiles/rebuild_cache.util
+build neos/slotsAndSignals/rebuild_cache: phony neos/slotsAndSignals/CMakeFiles/rebuild_cache.util
 
 
 #############################################
 # Utility command for list_install_components
 
-build neos/dataStructures/linkedList/test/list_install_components: phony
+build neos/slotsAndSignals/list_install_components: phony
 
 
 #############################################
 # Utility command for install
 
-build neos/dataStructures/linkedList/test/CMakeFiles/install.util: CUSTOM_COMMAND neos/dataStructures/linkedList/test/all
-  COMMAND = cd /home/nboe/projects/Neos/build/neos/dataStructures/linkedList/test && /usr/bin/cmake -P cmake_install.cmake
+build neos/slotsAndSignals/CMakeFiles/install.util: CUSTOM_COMMAND neos/slotsAndSignals/all
+  COMMAND = cd /home/nboe/projects/Neos/build/neos/slotsAndSignals && /usr/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
 
-build neos/dataStructures/linkedList/test/install: phony neos/dataStructures/linkedList/test/CMakeFiles/install.util
+build neos/slotsAndSignals/install: phony neos/slotsAndSignals/CMakeFiles/install.util
 
 
 #############################################
 # Utility command for install/local
 
-build neos/dataStructures/linkedList/test/CMakeFiles/install/local.util: CUSTOM_COMMAND neos/dataStructures/linkedList/test/all
-  COMMAND = cd /home/nboe/projects/Neos/build/neos/dataStructures/linkedList/test && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+build neos/slotsAndSignals/CMakeFiles/install/local.util: CUSTOM_COMMAND neos/slotsAndSignals/all
+  COMMAND = cd /home/nboe/projects/Neos/build/neos/slotsAndSignals && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
 
-build neos/dataStructures/linkedList/test/install/local: phony neos/dataStructures/linkedList/test/CMakeFiles/install/local.util
+build neos/slotsAndSignals/install/local: phony neos/slotsAndSignals/CMakeFiles/install/local.util
 
 
 #############################################
 # Utility command for install/strip
 
-build neos/dataStructures/linkedList/test/CMakeFiles/install/strip.util: CUSTOM_COMMAND neos/dataStructures/linkedList/test/all
-  COMMAND = cd /home/nboe/projects/Neos/build/neos/dataStructures/linkedList/test && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+build neos/slotsAndSignals/CMakeFiles/install/strip.util: CUSTOM_COMMAND neos/slotsAndSignals/all
+  COMMAND = cd /home/nboe/projects/Neos/build/neos/slotsAndSignals && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
 
-build neos/dataStructures/linkedList/test/install/strip: phony neos/dataStructures/linkedList/test/CMakeFiles/install/strip.util
+build neos/slotsAndSignals/install/strip: phony neos/slotsAndSignals/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /home/nboe/projects/Neos/neos/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target NeosUnitTests
+
+
+#############################################
+# Order-only phony target for NeosUnitTests
+
+build cmake_object_order_depends_target_NeosUnitTests: phony || cmake_object_order_depends_target_LinkedList cmake_object_order_depends_target_SlotsAndSignals cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+
+build neos/test/CMakeFiles/NeosUnitTests.dir/LinkedListTest.cpp.o: CXX_COMPILER__NeosUnitTests_Debug /home/nboe/projects/Neos/neos/test/LinkedListTest.cpp || cmake_object_order_depends_target_NeosUnitTests
+  DEP_FILE = neos/test/CMakeFiles/NeosUnitTests.dir/LinkedListTest.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/nboe/projects/Neos/neos/slotsAndSignals/include -I/home/nboe/projects/Neos/neos/dataStructures/linkedList/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest
+  OBJECT_DIR = neos/test/CMakeFiles/NeosUnitTests.dir
+  OBJECT_FILE_DIR = neos/test/CMakeFiles/NeosUnitTests.dir
+
+build neos/test/CMakeFiles/NeosUnitTests.dir/SlotsAndSignalsTest.cpp.o: CXX_COMPILER__NeosUnitTests_Debug /home/nboe/projects/Neos/neos/test/SlotsAndSignalsTest.cpp || cmake_object_order_depends_target_NeosUnitTests
+  DEP_FILE = neos/test/CMakeFiles/NeosUnitTests.dir/SlotsAndSignalsTest.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/nboe/projects/Neos/neos/slotsAndSignals/include -I/home/nboe/projects/Neos/neos/dataStructures/linkedList/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest
+  OBJECT_DIR = neos/test/CMakeFiles/NeosUnitTests.dir
+  OBJECT_FILE_DIR = neos/test/CMakeFiles/NeosUnitTests.dir
+
+build neos/test/CMakeFiles/NeosUnitTests.dir/main.cpp.o: CXX_COMPILER__NeosUnitTests_Debug /home/nboe/projects/Neos/neos/test/main.cpp || cmake_object_order_depends_target_NeosUnitTests
+  DEP_FILE = neos/test/CMakeFiles/NeosUnitTests.dir/main.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I/home/nboe/projects/Neos/neos/slotsAndSignals/include -I/home/nboe/projects/Neos/neos/dataStructures/linkedList/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest/include -isystem /home/nboe/projects/Neos/libraries/googletest/googletest
+  OBJECT_DIR = neos/test/CMakeFiles/NeosUnitTests.dir
+  OBJECT_FILE_DIR = neos/test/CMakeFiles/NeosUnitTests.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target NeosUnitTests
+
+
+#############################################
+# Link the executable neos/test/NeosUnitTests
+
+build neos/test/NeosUnitTests: CXX_EXECUTABLE_LINKER__NeosUnitTests_Debug neos/test/CMakeFiles/NeosUnitTests.dir/LinkedListTest.cpp.o neos/test/CMakeFiles/NeosUnitTests.dir/SlotsAndSignalsTest.cpp.o neos/test/CMakeFiles/NeosUnitTests.dir/main.cpp.o | lib/libgtest_main.a neos/slotsAndSignals/libSlotsAndSignals.a neos/dataStructures/linkedList/libLinkedList.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a neos/dataStructures/linkedList/libLinkedList.a neos/slotsAndSignals/libSlotsAndSignals.a
+  FLAGS = -g
+  LINK_LIBRARIES = lib/libgtest_main.a  neos/slotsAndSignals/libSlotsAndSignals.a  neos/dataStructures/linkedList/libLinkedList.a  lib/libgtest.a
+  OBJECT_DIR = neos/test/CMakeFiles/NeosUnitTests.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = neos/test/NeosUnitTests
+  TARGET_PDB = NeosUnitTests.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build neos/test/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/nboe/projects/Neos/build/neos/test && /usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build neos/test/edit_cache: phony neos/test/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build neos/test/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/nboe/projects/Neos/build/neos/test && /usr/bin/cmake --regenerate-during-build -S/home/nboe/projects/Neos -B/home/nboe/projects/Neos/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build neos/test/rebuild_cache: phony neos/test/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build neos/test/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build neos/test/CMakeFiles/install.util: CUSTOM_COMMAND neos/test/all
+  COMMAND = cd /home/nboe/projects/Neos/build/neos/test && /usr/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build neos/test/install: phony neos/test/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build neos/test/CMakeFiles/install/local.util: CUSTOM_COMMAND neos/test/all
+  COMMAND = cd /home/nboe/projects/Neos/build/neos/test && /usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build neos/test/install/local: phony neos/test/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build neos/test/CMakeFiles/install/strip.util: CUSTOM_COMMAND neos/test/all
+  COMMAND = cd /home/nboe/projects/Neos/build/neos/test && /usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build neos/test/install/strip: phony neos/test/CMakeFiles/install/strip.util
 
 # =============================================================================
 # Target aliases.
 
 build LinkedList: phony neos/dataStructures/linkedList/libLinkedList.a
 
-build LinkedListTest: phony neos/dataStructures/linkedList/test/LinkedListTest
+build NeosUnitTests: phony neos/test/NeosUnitTests
+
+build SlotsAndSignals: phony neos/slotsAndSignals/libSlotsAndSignals.a
 
 build gmock: phony lib/libgmock.a
 
@@ -874,6 +992,8 @@ build gtest: phony lib/libgtest.a
 build gtest_main: phony lib/libgtest_main.a
 
 build libLinkedList.a: phony neos/dataStructures/linkedList/libLinkedList.a
+
+build libSlotsAndSignals.a: phony neos/slotsAndSignals/libSlotsAndSignals.a
 
 build libgmock.a: phony lib/libgmock.a
 
@@ -926,7 +1046,7 @@ build libraries/googletest/googletest/all: phony lib/libgtest.a lib/libgtest_mai
 #############################################
 # Folder: /home/nboe/projects/Neos/build/neos
 
-build neos/all: phony neos/dataStructures/all
+build neos/all: phony neos/dataStructures/all neos/slotsAndSignals/all neos/test/all
 
 # =============================================================================
 
@@ -940,14 +1060,21 @@ build neos/dataStructures/all: phony neos/dataStructures/linkedList/all
 #############################################
 # Folder: /home/nboe/projects/Neos/build/neos/dataStructures/linkedList
 
-build neos/dataStructures/linkedList/all: phony neos/dataStructures/linkedList/libLinkedList.a neos/dataStructures/linkedList/test/all
+build neos/dataStructures/linkedList/all: phony neos/dataStructures/linkedList/libLinkedList.a
 
 # =============================================================================
 
 #############################################
-# Folder: /home/nboe/projects/Neos/build/neos/dataStructures/linkedList/test
+# Folder: /home/nboe/projects/Neos/build/neos/slotsAndSignals
 
-build neos/dataStructures/linkedList/test/all: phony neos/dataStructures/linkedList/test/LinkedListTest
+build neos/slotsAndSignals/all: phony neos/slotsAndSignals/libSlotsAndSignals.a
+
+# =============================================================================
+
+#############################################
+# Folder: /home/nboe/projects/Neos/build/neos/test
+
+build neos/test/all: phony neos/test/NeosUnitTests
 
 # =============================================================================
 # Built-in targets
@@ -956,14 +1083,14 @@ build neos/dataStructures/linkedList/test/all: phony neos/dataStructures/linkedL
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /home/nboe/projects/Neos/CMakeLists.txt /home/nboe/projects/Neos/app/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/googlemock/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/googlemock/cmake/gmock.pc.in /home/nboe/projects/Neos/libraries/googletest/googlemock/cmake/gmock_main.pc.in /home/nboe/projects/Neos/libraries/googletest/googletest/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/Config.cmake.in /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/gtest.pc.in /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/gtest_main.pc.in /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/internal_utils.cmake /home/nboe/projects/Neos/neos/CMakeLists.txt /home/nboe/projects/Neos/neos/dataStructures/CMakeLists.txt /home/nboe/projects/Neos/neos/dataStructures/linkedList/CMakeLists.txt /home/nboe/projects/Neos/neos/dataStructures/linkedList/test/CMakeLists.txt /usr/share/cmake-3.25/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /usr/share/cmake-3.25/Modules/CMakeCInformation.cmake /usr/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.25/Modules/CMakeDependentOption.cmake /usr/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.25/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.25/Modules/CheckCSourceCompiles.cmake /usr/share/cmake-3.25/Modules/CheckIncludeFile.cmake /usr/share/cmake-3.25/Modules/CheckLibraryExists.cmake /usr/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.25/Modules/Compiler/GNU.cmake /usr/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.25/Modules/FindPackageMessage.cmake /usr/share/cmake-3.25/Modules/FindThreads.cmake /usr/share/cmake-3.25/Modules/GNUInstallDirs.cmake /usr/share/cmake-3.25/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.25/Modules/Platform/Linux.cmake /usr/share/cmake-3.25/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.25/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.25.1/CMakeCCompiler.cmake CMakeFiles/3.25.1/CMakeCXXCompiler.cmake CMakeFiles/3.25.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/nboe/projects/Neos/CMakeLists.txt /home/nboe/projects/Neos/app/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/googlemock/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/googlemock/cmake/gmock.pc.in /home/nboe/projects/Neos/libraries/googletest/googlemock/cmake/gmock_main.pc.in /home/nboe/projects/Neos/libraries/googletest/googletest/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/Config.cmake.in /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/gtest.pc.in /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/gtest_main.pc.in /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/internal_utils.cmake /home/nboe/projects/Neos/neos/CMakeLists.txt /home/nboe/projects/Neos/neos/dataStructures/CMakeLists.txt /home/nboe/projects/Neos/neos/dataStructures/linkedList/CMakeLists.txt /home/nboe/projects/Neos/neos/slotsAndSignals/CMakeLists.txt /home/nboe/projects/Neos/neos/test/CMakeLists.txt /usr/share/cmake-3.25/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /usr/share/cmake-3.25/Modules/CMakeCInformation.cmake /usr/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.25/Modules/CMakeDependentOption.cmake /usr/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.25/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.25/Modules/CheckCSourceCompiles.cmake /usr/share/cmake-3.25/Modules/CheckIncludeFile.cmake /usr/share/cmake-3.25/Modules/CheckLibraryExists.cmake /usr/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.25/Modules/Compiler/GNU.cmake /usr/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.25/Modules/FindPackageMessage.cmake /usr/share/cmake-3.25/Modules/FindThreads.cmake /usr/share/cmake-3.25/Modules/GNUInstallDirs.cmake /usr/share/cmake-3.25/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.25/Modules/Platform/Linux.cmake /usr/share/cmake-3.25/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.25/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.25.1/CMakeCCompiler.cmake CMakeFiles/3.25.1/CMakeCXXCompiler.cmake CMakeFiles/3.25.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /home/nboe/projects/Neos/CMakeLists.txt /home/nboe/projects/Neos/app/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/googlemock/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/googlemock/cmake/gmock.pc.in /home/nboe/projects/Neos/libraries/googletest/googlemock/cmake/gmock_main.pc.in /home/nboe/projects/Neos/libraries/googletest/googletest/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/Config.cmake.in /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/gtest.pc.in /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/gtest_main.pc.in /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/internal_utils.cmake /home/nboe/projects/Neos/neos/CMakeLists.txt /home/nboe/projects/Neos/neos/dataStructures/CMakeLists.txt /home/nboe/projects/Neos/neos/dataStructures/linkedList/CMakeLists.txt /home/nboe/projects/Neos/neos/dataStructures/linkedList/test/CMakeLists.txt /usr/share/cmake-3.25/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /usr/share/cmake-3.25/Modules/CMakeCInformation.cmake /usr/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.25/Modules/CMakeDependentOption.cmake /usr/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.25/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.25/Modules/CheckCSourceCompiles.cmake /usr/share/cmake-3.25/Modules/CheckIncludeFile.cmake /usr/share/cmake-3.25/Modules/CheckLibraryExists.cmake /usr/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.25/Modules/Compiler/GNU.cmake /usr/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.25/Modules/FindPackageMessage.cmake /usr/share/cmake-3.25/Modules/FindThreads.cmake /usr/share/cmake-3.25/Modules/GNUInstallDirs.cmake /usr/share/cmake-3.25/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.25/Modules/Platform/Linux.cmake /usr/share/cmake-3.25/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.25/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.25.1/CMakeCCompiler.cmake CMakeFiles/3.25.1/CMakeCXXCompiler.cmake CMakeFiles/3.25.1/CMakeSystem.cmake: phony
+build /home/nboe/projects/Neos/CMakeLists.txt /home/nboe/projects/Neos/app/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/googlemock/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/googlemock/cmake/gmock.pc.in /home/nboe/projects/Neos/libraries/googletest/googlemock/cmake/gmock_main.pc.in /home/nboe/projects/Neos/libraries/googletest/googletest/CMakeLists.txt /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/Config.cmake.in /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/gtest.pc.in /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/gtest_main.pc.in /home/nboe/projects/Neos/libraries/googletest/googletest/cmake/internal_utils.cmake /home/nboe/projects/Neos/neos/CMakeLists.txt /home/nboe/projects/Neos/neos/dataStructures/CMakeLists.txt /home/nboe/projects/Neos/neos/dataStructures/linkedList/CMakeLists.txt /home/nboe/projects/Neos/neos/slotsAndSignals/CMakeLists.txt /home/nboe/projects/Neos/neos/test/CMakeLists.txt /usr/share/cmake-3.25/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /usr/share/cmake-3.25/Modules/CMakeCInformation.cmake /usr/share/cmake-3.25/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.25/Modules/CMakeDependentOption.cmake /usr/share/cmake-3.25/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake /usr/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.25/Modules/CMakePackageConfigHelpers.cmake /usr/share/cmake-3.25/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.25/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.25/Modules/CheckCSourceCompiles.cmake /usr/share/cmake-3.25/Modules/CheckIncludeFile.cmake /usr/share/cmake-3.25/Modules/CheckLibraryExists.cmake /usr/share/cmake-3.25/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.25/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.25/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.25/Modules/Compiler/GNU.cmake /usr/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.25/Modules/FindPackageMessage.cmake /usr/share/cmake-3.25/Modules/FindThreads.cmake /usr/share/cmake-3.25/Modules/GNUInstallDirs.cmake /usr/share/cmake-3.25/Modules/Internal/CheckSourceCompiles.cmake /usr/share/cmake-3.25/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.25/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.25/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.25/Modules/Platform/Linux.cmake /usr/share/cmake-3.25/Modules/Platform/UnixPaths.cmake /usr/share/cmake-3.25/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.25.1/CMakeCCompiler.cmake CMakeFiles/3.25.1/CMakeCXXCompiler.cmake CMakeFiles/3.25.1/CMakeSystem.cmake: phony
 
 
 #############################################

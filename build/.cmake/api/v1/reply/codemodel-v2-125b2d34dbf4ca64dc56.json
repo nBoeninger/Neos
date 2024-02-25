@@ -44,7 +44,7 @@
 						3
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-libraries.googletest.googlemock-Debug-92e19d2d6bc23919a6c1.json",
+					"jsonFile" : "directory-libraries.googletest.googlemock-Debug-3edbacb31d2f23aec62f.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.13"
@@ -54,14 +54,14 @@
 					"source" : "libraries/googletest/googlemock",
 					"targetIndexes" : 
 					[
-						2,
-						3
+						3,
+						4
 					]
 				},
 				{
 					"build" : "libraries/googletest/googletest",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-libraries.googletest.googletest-Debug-db61551d4ab972a3e368.json",
+					"jsonFile" : "directory-libraries.googletest.googletest-Debug-9f2b4f7f0004905c1478.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.13"
@@ -71,8 +71,8 @@
 					"source" : "libraries/googletest/googletest",
 					"targetIndexes" : 
 					[
-						4,
-						5
+						5,
+						6
 					]
 				},
 				{
@@ -90,7 +90,9 @@
 					"build" : "neos",
 					"childIndexes" : 
 					[
-						6
+						6,
+						8,
+						9
 					],
 					"jsonFile" : "directory-neos-Debug-d72aaa7e47a9f9adbb4d.json",
 					"minimumCMakeVersion" : 
@@ -118,10 +120,6 @@
 				},
 				{
 					"build" : "neos/dataStructures/linkedList",
-					"childIndexes" : 
-					[
-						8
-					],
 					"jsonFile" : "directory-neos.dataStructures.linkedList-Debug-a410afbe2428e7e0883c.json",
 					"minimumCMakeVersion" : 
 					{
@@ -136,15 +134,30 @@
 					]
 				},
 				{
-					"build" : "neos/dataStructures/linkedList/test",
-					"jsonFile" : "directory-neos.dataStructures.linkedList.test-Debug-842495409f71d9398c02.json",
+					"build" : "neos/slotsAndSignals",
+					"jsonFile" : "directory-neos.slotsAndSignals-Debug-382088cd6d78c54d3ea8.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.15"
 					},
-					"parentIndex" : 7,
-					"projectIndex" : 4,
-					"source" : "neos/dataStructures/linkedList/test",
+					"parentIndex" : 5,
+					"projectIndex" : 5,
+					"source" : "neos/slotsAndSignals",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "neos/test",
+					"jsonFile" : "directory-neos.test-Debug-5d93414ba69031914793.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "neos/test",
 					"targetIndexes" : 
 					[
 						1
@@ -158,16 +171,22 @@
 					"childIndexes" : 
 					[
 						1,
-						4
+						4,
+						5
 					],
 					"directoryIndexes" : 
 					[
 						0,
 						4,
 						5,
-						6
+						6,
+						9
 					],
-					"name" : "Neos"
+					"name" : "Neos",
+					"targetIndexes" : 
+					[
+						1
+					]
 				},
 				{
 					"childIndexes" : 
@@ -194,8 +213,8 @@
 					"parentIndex" : 1,
 					"targetIndexes" : 
 					[
-						2,
-						3
+						3,
+						4
 					]
 				},
 				{
@@ -207,22 +226,32 @@
 					"parentIndex" : 2,
 					"targetIndexes" : 
 					[
-						4,
-						5
+						5,
+						6
 					]
 				},
 				{
 					"directoryIndexes" : 
 					[
-						7,
-						8
+						7
 					],
 					"name" : "LinkedList",
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						0,
-						1
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						8
+					],
+					"name" : "SlotsAndSignals",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
 					]
 				}
 			],
@@ -231,16 +260,23 @@
 				{
 					"directoryIndex" : 7,
 					"id" : "LinkedList::@2cfd23d3b589a1e6b8f0",
-					"jsonFile" : "target-LinkedList-Debug-950ac4d39fe5b5fb1fe3.json",
+					"jsonFile" : "target-LinkedList-Debug-1345a6088058e471c9b5.json",
 					"name" : "LinkedList",
 					"projectIndex" : 4
 				},
 				{
+					"directoryIndex" : 9,
+					"id" : "NeosUnitTests::@9983c1521c6eb6da8fb7",
+					"jsonFile" : "target-NeosUnitTests-Debug-55281f0f0daf0b1abf7d.json",
+					"name" : "NeosUnitTests",
+					"projectIndex" : 0
+				},
+				{
 					"directoryIndex" : 8,
-					"id" : "LinkedListTest::@0cfb0ed11969f7b4972e",
-					"jsonFile" : "target-LinkedListTest-Debug-af606ffe4c9ebfd52c95.json",
-					"name" : "LinkedListTest",
-					"projectIndex" : 4
+					"id" : "SlotsAndSignals::@bc2ed6a5a6c044b8a3bf",
+					"jsonFile" : "target-SlotsAndSignals-Debug-17f8b96e6228ec80588b.json",
+					"name" : "SlotsAndSignals",
+					"projectIndex" : 5
 				},
 				{
 					"directoryIndex" : 2,

@@ -8,7 +8,7 @@
 	"installers" : [],
 	"paths" : 
 	{
-		"build" : "neos/dataStructures/linkedList/test",
-		"source" : "neos/dataStructures/linkedList/test"
+		"build" : "neos/test",
+		"source" : "neos/test"
 	}
 }

@@ -22,6 +22,7 @@ public:
 
     // Constructor
     LinkedList(): m_head(nullptr), m_list_lenght(0){};
+    ~LinkedList();
 
     // save val to List
     bool save(T value);
@@ -39,6 +40,24 @@ protected:
     ListElement<T>* m_head;
     size_t m_list_lenght;
 };
+
+template<class T>
+LinkedList<T>::~LinkedList()
+{
+    // Clean everything up in the list
+    ListElement<T> *p_current = m_head;
+    ListElement<T> *p_nxt = nullptr;
+
+    while (p_current != nullptr)
+    {
+        p_nxt = p_current -> next;
+        delete p_current;
+        p_current = p_nxt;
+        this -> m_list_lenght-- ;
+    }
+    m_head = nullptr;
+
+}
 
 template<class T>
 bool LinkedList<T>::save(T value)
@@ -70,12 +89,12 @@ bool LinkedList<T>::save(T value)
         {
             p_tmp_head -> next = p_mem_elem;
             this -> m_list_lenght++;
-            return false;
+            return true;
         }
         p_tmp_head = p_tmp_head -> next;
     }
-
-    return true;
+    // we shouldn't get here...
+    return false;
 }
 
 template<class T>
@@ -111,6 +130,7 @@ bool LinkedList<T>::remove(uint64_t id)
         if (elem_id == id)
         {
             // rearrange list
+            // and free the no longer needed memory
             p_tmp_prev -> next  = p_tmp_curr -> next;
             this -> m_list_lenght--;
             return true;

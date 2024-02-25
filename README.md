@@ -1,7 +1,7 @@
 ![alt text](./pics/neos_2.jpeg)
 
 # Project Neos
-Project Neos is a collection of C/C++ Libraries.
+Project Neos is a collection of C/C++ Libraries. Are there faster librariers ? Yes. Are the more flexiable librariers ? Of course. But this is mine and i enjoy working on it :) 
 
 ## Vision
 The Vision of Neos is to support the devlopment of embedded systems. The Neos Project can be used as a base project, providing some libraries I find usefull for developing embedded software.

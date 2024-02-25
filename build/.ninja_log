@@ -1,0 +1,13 @@
+# ninja log v5
+1	754	1708855977977838475	libraries/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o	aaab07396e306bd5
+0	968	1708855978193838247	libraries/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o	5951e60cddfdcdda
+0	1939	1708855979157837238	libraries/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o	6604d1c99975fa33
+1	3853	1708855981065835253	libraries/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	5f65491df9317803
+2	103	1708856017109800231	lib/libgtest.a	c89ed48c6d5fb342
+3	794	1708856017801799602	neos/dataStructures/linkedList/test/CMakeFiles/LinkedListTest.dir/LinkedListTest.cpp.o	c7463a83657536bb
+3	18	1708856031873787187	lib/libgtest_main.a	8e19e84c053bb2de
+2	47	1708856031901787163	lib/libgmock.a	2a011e8fda0efdd1
+47	62	1708856031917787150	lib/libgmock_main.a	a9bf0ff860c5a3de
+3	155	1708856032009787069	neos/dataStructures/linkedList/CMakeFiles/LinkedList.dir/src/linkedList.cpp.o	122421b3ecbac1fb
+155	164	1708856032021787060	neos/dataStructures/linkedList/libLinkedList.a	2b95aa936e649b54
+164	357	1708856032209786896	neos/dataStructures/linkedList/test/LinkedListTest	6cd05abee739d77c

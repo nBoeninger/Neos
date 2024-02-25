@@ -1,0 +1,287 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						4,
+						5
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "libraries/googletest",
+					"childIndexes" : 
+					[
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libraries.googletest-Debug-224acd25c489a08f5d72.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "libraries/googletest"
+				},
+				{
+					"build" : "libraries/googletest/googlemock",
+					"childIndexes" : 
+					[
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libraries.googletest.googlemock-Debug-92e19d2d6bc23919a6c1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "libraries/googletest/googlemock",
+					"targetIndexes" : 
+					[
+						2,
+						3
+					]
+				},
+				{
+					"build" : "libraries/googletest/googletest",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libraries.googletest.googletest-Debug-db61551d4ab972a3e368.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 3,
+					"source" : "libraries/googletest/googletest",
+					"targetIndexes" : 
+					[
+						4,
+						5
+					]
+				},
+				{
+					"build" : "app",
+					"jsonFile" : "directory-app-Debug-94c5f210ca04b1028ae5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "app"
+				},
+				{
+					"build" : "neos",
+					"childIndexes" : 
+					[
+						6
+					],
+					"jsonFile" : "directory-neos-Debug-d72aaa7e47a9f9adbb4d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "neos"
+				},
+				{
+					"build" : "neos/dataStructures",
+					"childIndexes" : 
+					[
+						7
+					],
+					"jsonFile" : "directory-neos.dataStructures-Debug-52bcb9ff447a6730d3d0.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 0,
+					"source" : "neos/dataStructures"
+				},
+				{
+					"build" : "neos/dataStructures/linkedList",
+					"childIndexes" : 
+					[
+						8
+					],
+					"jsonFile" : "directory-neos.dataStructures.linkedList-Debug-a410afbe2428e7e0883c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 4,
+					"source" : "neos/dataStructures/linkedList",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "neos/dataStructures/linkedList/test",
+					"jsonFile" : "directory-neos.dataStructures.linkedList.test-Debug-842495409f71d9398c02.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 4,
+					"source" : "neos/dataStructures/linkedList/test",
+					"targetIndexes" : 
+					[
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						4
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						4,
+						5,
+						6
+					],
+					"name" : "Neos"
+				},
+				{
+					"childIndexes" : 
+					[
+						2
+					],
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "googletest-distribution",
+					"parentIndex" : 0
+				},
+				{
+					"childIndexes" : 
+					[
+						3
+					],
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "gmock",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						2,
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "gtest",
+					"parentIndex" : 2,
+					"targetIndexes" : 
+					[
+						4,
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						7,
+						8
+					],
+					"name" : "LinkedList",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 7,
+					"id" : "LinkedList::@2cfd23d3b589a1e6b8f0",
+					"jsonFile" : "target-LinkedList-Debug-950ac4d39fe5b5fb1fe3.json",
+					"name" : "LinkedList",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "LinkedListTest::@0cfb0ed11969f7b4972e",
+					"jsonFile" : "target-LinkedListTest-Debug-af606ffe4c9ebfd52c95.json",
+					"name" : "LinkedListTest",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gmock::@f4afd6605169d5a23d9c",
+					"jsonFile" : "target-gmock-Debug-ba931eb8b04de67ece47.json",
+					"name" : "gmock",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "gmock_main::@f4afd6605169d5a23d9c",
+					"jsonFile" : "target-gmock_main-Debug-7c623d2cb8859b08602f.json",
+					"name" : "gmock_main",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "gtest::@f9246a573ffd0ade034f",
+					"jsonFile" : "target-gtest-Debug-9597b9a62a6caddc9c70.json",
+					"name" : "gtest",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "gtest_main::@f9246a573ffd0ade034f",
+					"jsonFile" : "target-gtest_main-Debug-fbed31b072f5bd9ed03e.json",
+					"name" : "gtest_main",
+					"projectIndex" : 3
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/nboe/projects/Neos/build",
+		"source" : "/home/nboe/projects/Neos"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

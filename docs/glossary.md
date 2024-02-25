@@ -7,6 +7,7 @@ Variables may contain one of the following shortcuts:
    - nxt = next
    - tmp = temporary
    - mem = memory
+   - elem = element
 
 # Class Names
 Classes are written in PascalCase.

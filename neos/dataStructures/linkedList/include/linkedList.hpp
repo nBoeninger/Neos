@@ -1,10 +1,19 @@
 #ifndef LINKEDLIST_HPP
 #define LINKEDLIST_HPP
 
+/**
+ * @brief The LinkedList Module
+**/
+
 #include <cstdint>
 #include <cstddef>
 #include <memory>
 
+/**
+ * @brief A List Element Struct
+ * @details The List Element contains the next pointer,
+ *          aswell as the data to hold as an Template
+ * **/
 template<class T>
 struct ListElement
 {
@@ -15,6 +24,9 @@ public:
     T data;
 };
 
+/**
+ * @brief The Linked List Class
+ * **/
 template<class T>
 class LinkedList
 {
@@ -24,7 +36,10 @@ public:
     LinkedList(): m_head(nullptr), m_list_lenght(0){};
     ~LinkedList();
 
-    // save val to List
+    /**
+     * @brief Save a value to the List
+     * @return succesfull ?
+     * **/
     bool save(T value);
 
     // get the first element of list
@@ -38,7 +53,7 @@ public:
 
 protected:
     ListElement<T>* m_head;
-    size_t m_list_lenght;
+    size_t m_listLenght;
 };
 
 template<class T>
@@ -53,7 +68,7 @@ LinkedList<T>::~LinkedList()
         p_nxt = p_current -> next;
         delete p_current;
         p_current = p_nxt;
-        this -> m_list_lenght-- ;
+        this -> m_listLenght-- ;
     }
     m_head = nullptr;
 
@@ -63,8 +78,8 @@ template<class T>
 bool LinkedList<T>::save(T value)
 {
     // get the adress of our new memory 
-    ListElement<T> *p_mem_elem = (new ListElement<T>);
-    if (p_mem_elem == nullptr)
+    ListElement<T> *p_memElem = (new ListElement<T>);
+    if (p_memElem == nullptr)
     {
         return false;
     }
@@ -74,24 +89,24 @@ bool LinkedList<T>::save(T value)
     // insert first element
     if (m_head == nullptr)
     {
-        m_head = p_mem_elem;
-        this -> m_list_lenght++;
+        m_head = p_memElem;
+        this -> m_listLenght++;
         return false;
     }
 
     // start at the m_head
-    ListElement<T>* p_tmp_head = m_head;
+    ListElement<T>* p_tmpHead = m_head;
 
     // go through the list until we reach the null
-    while (p_tmp_head != nullptr)
+    while (p_tmpHead != nullptr)
     {
-        if (p_tmp_head -> next == nullptr)
+        if (p_tmpHhead -> next == nullptr)
         {
-            p_tmp_head -> next = p_mem_elem;
-            this -> m_list_lenght++;
+            p_tmpHead -> next = p_memElem;
+            this -> m_listLenght++;
             return true;
         }
-        p_tmp_head = p_tmp_head -> next;
+        p_tmpHead = p_tmpHead -> next;
     }
     // we shouldn't get here...
     return false;
@@ -103,18 +118,19 @@ T LinkedList<T>::getFront()
     if (m_head != nullptr)
     {
         T ret = m_head -> data;
-        ListElement<T>* del_id = m_head;
+        ListElement<T>* deleteId = m_head;
 
         m_head = m_head -> next;
-        this -> m_list_lenght--;
+        this -> m_listLenght--;
         return ret;
     }
+    // somethings missing here :D ...
 }
 
 template<class T>
 size_t LinkedList<T>::getLen()
 {
-    return this -> m_list_lenght;
+    return this -> m_listLenght;
 }
 
 template<class T>
@@ -122,22 +138,22 @@ bool LinkedList<T>::remove(uint64_t id)
 {
     // get the id of the value     
     
-    ListElement<T>* p_tmp_curr = m_head;
-    ListElement<T>* p_tmp_prev = m_head;
-    while (p_tmp_curr != nullptr)
+    ListElement<T>* p_tmpCurr = m_head;
+    ListElement<T>* p_tmpPrev = m_head;
+    while (p_tmpCurr != nullptr)
     {
-        uint64_t elem_id = *((uint64_t*)(&(p_tmp_curr -> data)));
-        if (elem_id == id)
+        uint64_t elemId = *((uint64_t*)(&(p_tmpCurr -> data)));
+        if (elemId == id)
         {
             // rearrange list
             // and free the no longer needed memory
-            p_tmp_prev -> next  = p_tmp_curr -> next;
-            this -> m_list_lenght--;
+            p_tmpPrev -> next  = p_tmpCurr -> next;
+            this -> m_listLenght--;
             return true;
         }
 
-        p_tmp_prev = p_tmp_curr;
-        p_tmp_curr = p_tmp_curr->next;
+        p_tmpPrev = p_tmpCurr;
+        p_tmpCurr = p_tmpCurr->next;
     }
     return false;
 }

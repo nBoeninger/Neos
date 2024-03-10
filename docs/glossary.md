@@ -11,6 +11,8 @@ Variables may contain one of the following shortcuts:
 
 # Class Names
 Classes are written in PascalCase.
+## Class Functions
+Class Functions start with a Capital Letter
 
 # Comments
 Comments are written to describe the why, not the how, since the code explains that.

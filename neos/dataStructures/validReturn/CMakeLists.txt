@@ -1,4 +1,4 @@
-set(This LinkedList)
+set(This ValidReturn)
 
 project(${This} VERSION 0.0.0)
 
@@ -8,15 +8,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE)
 
 set(Headers
-    "include/linkedList.hpp"
+    "include/validReturn.hpp"
 )
 set(Sources
-    "src/linkedList.cpp"
+    "src/validReturn.cpp"
 )
 
 add_library(${This} STATIC ${Sources})
 target_include_directories(${This} PUBLIC ${PROJECT_SOURCE_DIR}/include)
-
-target_link_libraries(${This} PUBLIC
-    ValidReturn
-)

@@ -4,9 +4,9 @@
 #include "signals.hpp"
 
 
-TEST(SignalsSlotTest, CanInit)
+TEST(SlotAndSingalsTest, CanInit)
 {
-    Signal<int> test;
+    Neos::Signal<int> test;
     
 }
 /*

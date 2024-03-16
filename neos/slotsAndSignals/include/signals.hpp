@@ -5,6 +5,14 @@
 #include <cstddef>
 #include <functional>
 
+/**
+ * @brief The SlotsAndSignals Module
+ * @details A easy Implementation of Signals and Slots
+ *             Slots can be connected to Signals which will be called
+ *             after the Signal is emitted. The Slot will be called 
+ *             within in the signals context!. 
+*/
+
 namespace Neos
 {
   
@@ -61,7 +69,7 @@ namespace Neos
   template<class T>
   void Signal<T>::Connect(std::function<void(T)> s)
   {
-      this -> save(s);
+      this -> Save(s);
   }
   
   template<class T>

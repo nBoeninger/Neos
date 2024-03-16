@@ -16,4 +16,4 @@ Class Functions start with a Capital Letter
 
 # Comments
 Comments are written to describe the why, not the how, since the code explains that.
-Classes, Functions, Structs are commented in Doxgen Style.
+Classes, Functions, Structs are commented in Doxygen Style.

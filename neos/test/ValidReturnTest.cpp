@@ -19,5 +19,11 @@ TEST(ValidReturnTest, CanAssignNewVar)
 {
   Neos::DataStructures::ValidReturn<int> t(42);
   int test = t;
-  ASSERT_TRUE(test = 42) << "T Value konnte nicht gecastet werden";
+  ASSERT_TRUE(test = 42) << "T Value unabled to be cast!";
+}
+
+TEST(ValidReturnTest, CanCheckInIf)
+{
+  Neos::DataStructures::ValidReturn<int> t(42);
+  ASSERT_TRUE(t == true) << "T Value unable to check!";
 }

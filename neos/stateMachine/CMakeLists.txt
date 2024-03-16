@@ -1,4 +1,4 @@
-set(This SlotsAndSignals)
+set(This StateMachine)
 
 project(${This} VERSION 0.0.0)
 
@@ -8,15 +8,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE)
 
 set(Headers
-    "include/signals.hpp"
+    "include/stateMachine.h"
 )
 set(Sources
-    "src/signals.cpp"
+    "src/stateMachine.c"
 )
 
 add_library(${This} STATIC ${Sources})
 target_include_directories(${This} PUBLIC ${PROJECT_SOURCE_DIR}/include)
-
-target_link_libraries(${This} PUBLIC
-    LinkedList
-)

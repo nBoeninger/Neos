@@ -10,4 +10,5 @@ target_link_libraries(${This} PUBLIC
     SlotsAndSignals
     LinkedList
     ValidReturn
+    StateMachine
 )

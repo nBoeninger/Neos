@@ -1,4 +1,5 @@
 add_subdirectory(dataStructures)
 add_subdirectory(slotsAndSignals)
+add_subdirectory(stateMachine)
 
 add_subdirectory(test)

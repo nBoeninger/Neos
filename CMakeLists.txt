@@ -13,3 +13,5 @@ set(CMAKE_POSITION_INDEPENDENT_CODE)
 add_subdirectory(libraries/googletest)
 add_subdirectory(app)
 add_subdirectory(neos)
+
+enable_testing()

@@ -24,6 +24,7 @@ bool StateMachine_Initialize(stateMachine_t* stateMachine, stateTable_t* stateTa
     stateMachine->stateTable[i].onState = NULL;
     stateMachine->stateTable[i].onStateChanged = NULL;
   }
+  return true;
 }
 
 bool StateMachine_AddState(stateMachine_t* stateMachine, stateTable_t stateTable)

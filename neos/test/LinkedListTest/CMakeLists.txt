@@ -10,3 +10,5 @@ target_link_libraries(${This} PUBLIC
     LinkedList
     ValidReturn
 )
+
+add_test(UnitTest_LinkedList ${This})

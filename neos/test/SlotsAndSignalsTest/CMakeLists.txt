@@ -1,4 +1,4 @@
-set(This SignalsSlotsUnitTests)
+set(This SlotsAndSignalsUnitTests)
 
 file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false *.h *.cpp)
 set(Sources ${TEST_SOURCES})
@@ -9,3 +9,5 @@ target_link_libraries(${This} PUBLIC
     gtest_main
     SlotsAndSignals
 )
+
+add_test(UnitTest_SlotsAndSignals ${This})

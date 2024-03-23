@@ -17,3 +17,5 @@ target_link_libraries(${This} PUBLIC
   StateMachine
   LinkedList
 )
+
+##add_test(neosUnitTests ${This})

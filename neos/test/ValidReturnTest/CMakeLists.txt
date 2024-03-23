@@ -9,3 +9,5 @@ target_link_libraries(${This} PUBLIC
     gtest_main
     ValidReturn
 )
+
+add_test(UnitTest_ValidReturn ${This})

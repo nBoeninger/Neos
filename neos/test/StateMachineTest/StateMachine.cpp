@@ -2,33 +2,36 @@
 #include "gtest/gtest.h"
 #include "stateMachine.h"
 
-static uint8_t stateId;
+static int testingStates;
 
 void OnEnterStateOne(void *context)
 {
-  int t = 0;  
+  testingStates = 1;  
 }
 void OnStateOne(void *context)
 {
-  int t = 0;
+  testingStates++;;
 }
 void OnExitStateOne(void *context)
 {
-  int t = 0; 
+  testingStates++; 
 }
 void OnEnterStateTwo(void *context)
 {
-  int t = 0;  
+  testingStates++;
 }
 void OnStateTwo(void *context)
 {
-  int t = 0;
+  testingStates++;
 }
 void OnExitStateTwo(void *context)
 {
-  int t = 0; 
+  testingStates++;
 }
-
+void OnStateChangedThree(void *context)
+{
+  testingStates = 42;
+}
 
 TEST(StateMachineTest, CanInit)
 {
@@ -76,7 +79,16 @@ TEST(StateMachineTest, CanAddAndCallState)
     .onExit = OnExitStateTwo,
     .onState = OnStateTwo,
   });
-  
+  StateMachine_AddState(&stateMachine, stateTable_t{
+    .onStateChanged = OnStateChangedThree,
+  });
+
   StateMachine_SwitchToState(&stateMachine, 0x00);
+  ASSERT_TRUE(testingStates == 2) << "StatesCount invalid, expected 3 got: " << testingStates;
+  
   StateMachine_SwitchToState(&stateMachine, 0x01);
+  ASSERT_TRUE(testingStates == 5) << "StatesCount invalid, expected 5, got: " << testingStates;
+
+  StateMachine_SwitchToState(&stateMachine, 0x02);
+  ASSERT_TRUE(testingStates == 42) << "StatesCount invalid, expected 42, got: " << testingStates;
 }

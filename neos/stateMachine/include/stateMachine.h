@@ -18,6 +18,11 @@ extern "C"
 
 /**
  * @brief The State Table Struct
+ * @param stateId The state id, not used internal, just for reading!
+ * @param onEnter Function that will be called on entering the state
+ * @param onExit Function that will be called on exiting the state
+ * @param OnState Function that will be called after entering the state
+ * @param onStateChanged Function that will be called when changing a state
 */
 typedef struct stateTable_t
 {
@@ -25,6 +30,7 @@ typedef struct stateTable_t
   void (*onEnter)(void* context);
   void (*onExit)(void* context);
   void (*onState)(void* context); 
+  void (*onStateChanged) (void* context);
 } stateTable_t;
 
 /**
@@ -65,6 +71,15 @@ bool StateMachine_AddState(stateMachine_t* stateMachine, stateTable_t stateTable
  * @return true if successfull
 */
 bool StateMachine_SwitchToState(stateMachine_t* stateMachine, uint8_t stateId);
+
+/**
+ * @brief Get the current State
+ * @return the StateId
+*/
+
+uint8_t StateMachine_GetCurrentState(stateMachine_t* stateMachine);
+
+
 
 #ifdef __cplusplus
 }

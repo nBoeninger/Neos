@@ -8,8 +8,7 @@ extern "C"
 #include <stdbool.h>
 #include <stdint.h>
 
-// I doubt anyone would need a state machine with 127 or more state :)
-#define StateMachine_MAXSIZE 127
+#define StateMachine_MAXSIZE 16
 #define StateMachine_INITSTATE -1
 
 /**
@@ -41,7 +40,7 @@ typedef struct stateMachine_t
   size_t tableSize;
   int8_t currentState;
   uint8_t addedStates;
-  stateTable_t* stateTable;
+  stateTable_t stateTable[StateMachine_MAXSIZE];
   void* context;
 
 } stateMachine_t;
@@ -53,7 +52,7 @@ typedef struct stateMachine_t
  * @param[in] tableSize: The size of the StateTable
  * @return true if successfull
 */
-bool StateMachine_Initialize(stateMachine_t* stateMachine, stateTable_t* stateTable, size_t tableSize, void* context);
+bool StateMachine_Initialize(stateMachine_t* stateMachine, size_t tableSize, void* context);
 
 /**
  * @brief Add a State to the Machine
@@ -76,9 +75,7 @@ bool StateMachine_SwitchToState(stateMachine_t* stateMachine, uint8_t stateId);
  * @brief Get the current State
  * @return the StateId
 */
-
 uint8_t StateMachine_GetCurrentState(stateMachine_t* stateMachine);
-
 
 
 #ifdef __cplusplus

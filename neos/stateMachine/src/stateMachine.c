@@ -1,8 +1,8 @@
 #include <string.h>
-
+#include <stdlib.h>
 #include "stateMachine.h"
 
-bool StateMachine_Initialize(stateMachine_t* stateMachine, stateTable_t* stateTable, size_t tableSize, void* context)
+bool StateMachine_Initialize(stateMachine_t* stateMachine, size_t tableSize, void* context)
 {
   if ((tableSize == 0)
     || (tableSize >= StateMachine_MAXSIZE)
@@ -14,11 +14,10 @@ bool StateMachine_Initialize(stateMachine_t* stateMachine, stateTable_t* stateTa
   stateMachine->currentState = StateMachine_INITSTATE;
   stateMachine->addedStates = 0;
   stateMachine->tableSize = tableSize;
-  stateMachine->stateTable = stateTable;
-  
+
   for (int i = 0; i <= tableSize; i++)
   {
-    stateMachine->stateTable[stateMachine->addedStates].stateId = i;
+    stateMachine->stateTable[i].stateId = i;
     stateMachine->stateTable[i].onEnter = NULL;
     stateMachine->stateTable[i].onExit  = NULL;
     stateMachine->stateTable[i].onState = NULL;
@@ -36,11 +35,7 @@ bool StateMachine_AddState(stateMachine_t* stateMachine, stateTable_t stateTable
     return false;
   }
 
-  stateMachine->stateTable[stateMachine->addedStates].onStateChanged = stateTable.onStateChanged;
-  stateMachine->stateTable[stateMachine->addedStates].onEnter = stateTable.onEnter;
-  stateMachine->stateTable[stateMachine->addedStates].onExit = stateTable.onExit;
-  stateMachine->stateTable[stateMachine->addedStates].onState = stateTable.onState;
-
+  stateMachine->stateTable[stateMachine->addedStates] = stateTable;
   stateMachine->addedStates++;
   return true;
 }
@@ -54,6 +49,7 @@ bool StateMachine_SwitchToState(stateMachine_t* stateMachine, uint8_t stateId)
   {
     return false;
   }
+
 
   if ((stateMachine->currentState != StateMachine_INITSTATE)
       && (stateMachine->stateTable[stateMachine->currentState].onExit != NULL)

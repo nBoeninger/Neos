@@ -37,8 +37,7 @@ TEST(StateMachineTest, CanInit)
 {
   stateMachine_t stateMachine;
   size_t tableSize = 10;
-  stateTable_t stateTable[tableSize];
-  bool isInitialized = StateMachine_Initialize(&stateMachine, stateTable, tableSize, nullptr);
+  bool isInitialized = StateMachine_Initialize(&stateMachine, tableSize, nullptr);
   ASSERT_TRUE(isInitialized) << "Unable to Initialize StateMachine";
 }
 
@@ -46,8 +45,7 @@ TEST(StateMachineTest, CanAddStates)
 {
   stateMachine_t stateMachine;
   size_t tableSize = 10;
-  stateTable_t stateTable[tableSize];
-  StateMachine_Initialize(&stateMachine, stateTable, tableSize, nullptr);
+  StateMachine_Initialize(&stateMachine, tableSize, nullptr);
 
   stateTable_t state_1 = {
     .stateId = 0x00,
@@ -64,24 +62,30 @@ TEST(StateMachineTest, CanAddAndCallState)
 {
   stateMachine_t stateMachine;
   size_t tableSize = 10;
-  stateTable_t stateTable[tableSize];
-  StateMachine_Initialize(&stateMachine, stateTable, tableSize, nullptr);
+  StateMachine_Initialize(&stateMachine, tableSize, nullptr);
 
-  StateMachine_AddState(&stateMachine, stateTable_t{
-    .stateId = 0x00,
-    .onEnter = OnEnterStateOne,
-    .onExit = OnExitStateOne,
-    .onState = OnStateOne,
-  });
-   StateMachine_AddState(&stateMachine, stateTable_t{
-    .stateId = 0x01,
-    .onEnter = OnEnterStateTwo,
-    .onExit = OnExitStateTwo,
-    .onState = OnStateTwo,
-  });
-  StateMachine_AddState(&stateMachine, stateTable_t{
-    .onStateChanged = OnStateChangedThree,
-  });
+  stateTable_t states[] = {
+    {
+      .stateId = 0x00,
+      .onEnter = OnEnterStateOne,
+      .onExit = OnExitStateOne,
+      .onState = OnStateOne,
+      .onStateChanged = NULL,
+    },
+    {
+     .stateId = 0x01,
+     .onEnter = OnEnterStateTwo,
+     .onExit = OnExitStateTwo,
+     .onState = OnStateTwo, 
+    },
+    {
+      .onStateChanged = OnStateChangedThree,
+    }
+  };
+
+  StateMachine_AddState(&stateMachine, states[0]);
+  StateMachine_AddState(&stateMachine, states[1]);
+  StateMachine_AddState(&stateMachine, states[2]);
 
   StateMachine_SwitchToState(&stateMachine, 0x00);
   ASSERT_TRUE(testingStates == 2) << "StatesCount invalid, expected 3 got: " << testingStates;

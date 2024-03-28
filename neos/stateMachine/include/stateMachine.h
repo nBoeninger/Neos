@@ -37,12 +37,11 @@ typedef struct stateTable_t
 */
 typedef struct stateMachine_t
 {
-  size_t tableSize;
-  int8_t currentState;
-  uint8_t addedStates;
-  stateTable_t stateTable[StateMachine_MAXSIZE];
   void* context;
-
+  int8_t currentState;
+  uint8_t tableSize;
+  uint8_t addedStates;
+  stateTable_t* stateTable;
 } stateMachine_t;
 
 /**
@@ -52,7 +51,7 @@ typedef struct stateMachine_t
  * @param[in] tableSize: The size of the StateTable
  * @return true if successfull
 */
-bool StateMachine_Initialize(stateMachine_t* stateMachine, size_t tableSize, void* context);
+bool StateMachine_Initialize(stateMachine_t* stateMachine, stateTable_t* stateTable,  uint8_t tableSize, void* context);
 
 /**
  * @brief Add a State to the Machine

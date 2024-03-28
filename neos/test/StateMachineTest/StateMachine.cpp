@@ -37,7 +37,8 @@ TEST(StateMachineTest, CanInit)
 {
   stateMachine_t stateMachine;
   size_t tableSize = 10;
-  bool isInitialized = StateMachine_Initialize(&stateMachine, tableSize, nullptr);
+  stateTable_t stateTable[tableSize];
+  bool isInitialized = StateMachine_Initialize(&stateMachine, stateTable, tableSize, nullptr);
   ASSERT_TRUE(isInitialized) << "Unable to Initialize StateMachine";
 }
 
@@ -45,7 +46,8 @@ TEST(StateMachineTest, CanAddStates)
 {
   stateMachine_t stateMachine;
   size_t tableSize = 10;
-  StateMachine_Initialize(&stateMachine, tableSize, nullptr);
+  stateTable_t stateTable[tableSize];
+  StateMachine_Initialize(&stateMachine, stateTable, tableSize, nullptr);
 
   stateTable_t state_1 = {
     .stateId = 0x00,
@@ -62,7 +64,8 @@ TEST(StateMachineTest, CanAddAndCallState)
 {
   stateMachine_t stateMachine;
   size_t tableSize = 10;
-  StateMachine_Initialize(&stateMachine, tableSize, nullptr);
+  stateTable_t stateTable[tableSize];
+  StateMachine_Initialize(&stateMachine, stateTable, tableSize, nullptr);
 
   stateTable_t states[] = {
     {

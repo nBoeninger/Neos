@@ -4,6 +4,7 @@ add_subdirectory(ValidReturnTest)
 add_subdirectory(SlotsAndSignalsTest)
 add_subdirectory(StateMachineTest)
 add_subdirectory(LinkedListTest)
+add_subdirectory(DataObjectTest)
 
 file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false *.h *.cpp)
 set(Sources ${TEST_SOURCES})
@@ -16,6 +17,7 @@ target_link_libraries(${This} PUBLIC
   SlotsAndSignals
   StateMachine
   LinkedList
+  DataObject
 )
 
 ##add_test(neosUnitTests ${This})

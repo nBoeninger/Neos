@@ -10,6 +10,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE)
 
+##set(CMAKE_C_COMPILER clang)
+##set(CMAKE_CXX_COMPILER clang++)
+
 enable_testing()
 
 add_subdirectory(libraries/googletest)

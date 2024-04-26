@@ -5,6 +5,7 @@ add_subdirectory(SlotsAndSignalsTest)
 add_subdirectory(StateMachineTest)
 add_subdirectory(LinkedListTest)
 add_subdirectory(DataObjectTest)
+add_subdirectory(TcpIpServerTest)
 
 file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false *.h *.cpp)
 set(Sources ${TEST_SOURCES})
@@ -18,6 +19,7 @@ target_link_libraries(${This} PUBLIC
   StateMachine
   LinkedList
   DataObject
+  TCPIPServer
 )
 
 ##add_test(neosUnitTests ${This})

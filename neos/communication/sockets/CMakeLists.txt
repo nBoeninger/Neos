@@ -1,4 +1,4 @@
-set(This SocketsWrapper)
+set(This SocketProxy)
 
 project(${This} VERSION 0.0.0)
 
@@ -8,10 +8,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE)
 
 set(Headers
-    "include/socketsWrapperIpServer.hpp"
+    "include/socketProxy.hpp"
 )
 set(Sources
-    "src/socketsWrapper.cpp"
+    "src/socketProxy.cpp"
 )
 
 add_library(${This} STATIC ${Sources})

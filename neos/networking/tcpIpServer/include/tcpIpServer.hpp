@@ -1,20 +1,11 @@
 #pragma once
 
-#include "socketProxy.hpp"
+#include "socketAdapter.hpp"
 #include "stdint.h"
-
-#include "sysDefines.hpp"
-#include "eConfigs.hpp"
-
-#if TARGET == LINUX
-  #include <arpa/inet.h>
-#elif TARGET == ESP32
-  //....
-#endif
 
 namespace Neos
 {
-  namespace Communication
+  namespace Networking
   {
 
     typedef struct TTcpIpServerConfig
@@ -30,6 +21,7 @@ namespace Neos
     class TcpIpServer
     {
       public:
+
         TcpIpServer(){};
         TcpIpServer(TTcpIpServerConfig serverConfig);
 
@@ -39,9 +31,9 @@ namespace Neos
         void RunServer();
 
       private:
-        SocketProxy m_socket;
+        SocketAdapter m_socketAdapter;
         TTcpIpServerConfig m_serverConfig;
-        struct sockaddr_in m_hostAddr;
+        TSockAddr_in m_hostAddr;
     };
   }
 }

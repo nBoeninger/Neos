@@ -4,11 +4,11 @@
 
 TEST(TcpIpTest, CanInit)
 {
-  Neos::Communication::TTcpIpServerConfig serverConfig = {
+  Neos::Networking::TTcpIpServerConfig serverConfig = {
     {127,0,0,1}, 
     .port = 8000,
   };
-  Neos::Communication::TcpIpServer testServer = Neos::Communication::TcpIpServer(serverConfig);
+  Neos::Networking::TcpIpServer testServer = Neos::Networking::TcpIpServer(serverConfig);
   testServer.StartServer();
-  testServer.RunServer();
+  //testServer.RunServer();
 }

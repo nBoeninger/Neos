@@ -19,6 +19,7 @@ target_include_directories(${This} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 target_link_libraries(${This} PUBLIC
     SlotsAndSignals
-    SocketProxy
+    SocketAdapter
     Configurations
+    HtonAdapter
 )

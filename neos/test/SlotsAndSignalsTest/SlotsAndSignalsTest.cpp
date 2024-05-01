@@ -46,7 +46,7 @@ class TestClass
 
 TEST(SlotAndSingalsTest, CanConnectFunctionsAndEmit)
 {
-  Neos::Signal<int> testSignal;
+  Neos::Communication::Signal<int> testSignal;
   testSignal.Connect(onTest);
   testSignal.Emit(2);
   ASSERT_TRUE(checkValue == 2) << "CheckValue not as expected, got " << checkValue << " expected 2";
@@ -54,7 +54,7 @@ TEST(SlotAndSingalsTest, CanConnectFunctionsAndEmit)
 
 TEST(SlotAndSignalTest, CanConnectClassFunctionsAndEmit)
 {
-  Neos::Signal<int> testSignal;
+  Neos::Communication::Signal<int> testSignal;
   TestClass testClass;
   testSignal.Connect(&testClass, &TestClass::onSignalReceivedINT);
   testSignal.Emit(42);
@@ -63,7 +63,7 @@ TEST(SlotAndSignalTest, CanConnectClassFunctionsAndEmit)
 
 TEST(SlotsAndSignalsTest, CanEmitStructs)
 {
-  Neos::Signal<EmittedDataStruct> testSignal;
+  Neos::Communication::Signal<EmittedDataStruct> testSignal;
   TestClass testClass;
   testSignal.Connect(&testClass, &TestClass::onSignalReceivedSTRUCT);
   EmittedDataStruct testStruct;

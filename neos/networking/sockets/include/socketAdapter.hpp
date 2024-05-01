@@ -7,6 +7,7 @@
 
 #include "eConfigs.hpp"
 #include "sysDefines.hpp"
+#include "stdint.h"
 
 #if TARGET == LINUX
   #include "sys/socket.h"
@@ -19,17 +20,31 @@
 
 namespace Neos
 {
- namespace Communication
- {
+  namespace Networking
+  {
+
+  /**
+   * @brief TSockAddr_in, adapter for the real struct handled by the kernel 
+   */
+  typedef struct TSockAddr_in 
+  {
+    int16_t sin_family;
+    uint16_t sin_port;
+    struct in_addr
+    {
+      uint32_t s_addr;
+    } sin_addr;
+    uint8_t sin_zero[8];
+  }TSockAddr_in;
 
   /**
    * @brief The SocketProxy Class
    */
-  class SocketProxy
+  class SocketAdapter
   {
     public:
-      SocketProxy();
-      ~SocketProxy();
+
+      SocketAdapter(){};
 
       /**
        * @brief Create a Socket
@@ -38,27 +53,28 @@ namespace Neos
        * @param protocol 
        * @return int socket
       */
-      int Socket(int domain, int type, int protocol);
+      SocketAdapter(int domain, int type, int protocol);
+      ~SocketAdapter();
+
+      int CreateSocket();
 
       /**
        * @brief Set the socket options
-       * @param socket 
        * @param level 
        * @param option_name 
        * @param option_value 
        * @param option_len 
        * @return 
        */
-      int Setsockopt(int socket, int level, int option_name, const void* option_value, socklen_t option_len);
+      int Setsockopt(int level, int option_name, const void* option_value, socklen_t option_len);
 
       /**
        * @brief  Bind a Socket to an Address
-       * @param sockfd 
        * @param addr 
        * @param addrlen 
        * @return 
        */
-      int Bind(int sockfd, const struct sockaddr* addr, socklen_t addrlen);
+      int Bind(const struct sockaddr* addr, socklen_t addrlen);
 
       /**
        * @brief Listen for connections
@@ -66,14 +82,29 @@ namespace Neos
        * @param backlog 
        * @return 
        */
-      int Listen(int sockfd, int backlog);
+      int Listen(int backlog);
 
-      int Accept(int sockfd, struct sockaddr* addr, socklen_t* addrlen);
+      /**
+       * @brief Accept a Connection
+       * @param addr 
+       * @return 
+       */
+      int Accept(struct sockaddr* addr);
 
+      /**
+       * @brief Getter for the socket
+       * @return 
+       */
       int GetSocket();
 
     private:
       int m_socket;
+      int m_domain;
+      int m_protocol;
+      int m_type;
+      TSockAddr_in m_addrIn;
+      const struct sockaddr* m_addr;
+      socklen_t m_addrlen;
   };
  }
 }

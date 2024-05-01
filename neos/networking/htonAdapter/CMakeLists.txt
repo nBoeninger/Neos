@@ -1,4 +1,4 @@
-set(This SocketProxy)
+set(This HtonAdapter)
 
 project(${This} VERSION 0.0.0)
 
@@ -8,16 +8,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE)
 
 set(Headers
-    "include/socketProxy.hpp"
+    "include/htonAdapter.h"
 )
 set(Sources
-    "src/socketProxy.cpp"
+    "src/htonAdapter.c"
 )
 
 add_library(${This} STATIC ${Sources})
 target_include_directories(${This} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 target_link_libraries(${This} PUBLIC
-    SlotsAndSignals
     Configurations
 )

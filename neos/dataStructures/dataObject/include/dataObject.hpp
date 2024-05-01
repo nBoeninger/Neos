@@ -40,7 +40,7 @@ namespace Neos
       /**
        * @brief The changed signal
       */
-      Signal<T> changed;
+      Communication::Signal<T> changed;
 
       DataObject& operator=(const T& lhr)
       {

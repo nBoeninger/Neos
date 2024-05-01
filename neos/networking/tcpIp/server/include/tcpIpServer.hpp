@@ -1,7 +1,7 @@
 #pragma once
 
 #include "TTcpIp.hpp"
-#include "ITcpIP.hpp"
+#include "ITcpIp.hpp"
 #include "socketAdapter.hpp"
 #include "stdint.h"
 

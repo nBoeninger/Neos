@@ -1,4 +1,4 @@
-#include "server.hpp"
+#include "tcpIpServer.hpp"
 #include "htonAdapter.h"
 
 namespace Neos
@@ -8,7 +8,13 @@ namespace Neos
     TcpIpServer::TcpIpServer(TTcpIpConfig serverConfig):
       ITcpIp(serverConfig)
     {
-     
+      const int enable = 1; 
+      m_socketAdapter.Setsockopt(SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int));
+      if (m_socketAdapter.Bind((struct sockaddr*)&m_tcpAddr, sizeof(m_tcpAddr)) != 0)
+      {
+        // TODO Error logging
+        return;
+      }
     }
 
     TcpIpServer::~TcpIpServer()
@@ -30,6 +36,13 @@ namespace Neos
         return;
       }
 
+      //TESTING!!!!!!!!
+      char buffer[1024];
+      while(1)
+      {
+        size_t valread = read(newsockfd, &buffer, 1024-1);
+
+      }
     }
   }
 }

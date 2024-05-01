@@ -44,6 +44,11 @@ namespace Neos
       return accept(m_socket, addr, &m_addrlen);
     }
 
+    int SocketAdapter::Connect(struct sockaddr* addr, socklen_t addlen)
+    {
+      return connect(m_socket, addr, addlen);
+    }
+
     int SocketAdapter::GetSocket()
     {
       return m_socket;

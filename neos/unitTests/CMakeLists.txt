@@ -22,5 +22,3 @@ target_link_libraries(${This} PUBLIC
   TCPIPServer
   TCPIPClient
 )
-
-##add_test(neosUnitTests ${This})

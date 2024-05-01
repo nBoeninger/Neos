@@ -1,14 +1,14 @@
 
 #include "gtest/gtest.h"
-#include "tcpIpServer.hpp"
+#include "server.hpp"
 
-TEST(TcpIpTest, CanInit)
+TEST(TcpIpTest, CanInitAndConnect)
 {
-  Neos::Networking::TTcpIpServerConfig serverConfig = {
+  Neos::Networking::TTcpIpConfig serverConfig = {
     {127,0,0,1}, 
     .port = 8000,
   };
   Neos::Networking::TcpIpServer testServer = Neos::Networking::TcpIpServer(serverConfig);
-  testServer.StartServer();
+  ASSERT_TRUE(testServer.Start()) << "Starting the server failed";
   //testServer.RunServer();
 }

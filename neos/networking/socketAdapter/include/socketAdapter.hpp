@@ -1,3 +1,5 @@
+#pragma once
+
 /**
  * @brief The Socket Proxy Module
  * @details This module provides an layer of abstraction 

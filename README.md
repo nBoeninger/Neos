@@ -19,12 +19,13 @@ neos/
 
 When Starting an new Project with Neos simply create a Project containing the app folder. Then add the Neos Project as a submodule.
 
-## Roadmap
+## Roadmap/Features
 
-- LinkedList -> c++
+- LinkedList -> c++ 
 - SlotsAndSignals -> c++
 - StateMachine -> in c
 - SystemDatabase -> c++
+- Networking -> c++
 - FreeRtos Wrapper -> c++
 - ComInterface -> c++ 
 - ComProtocol -> c++

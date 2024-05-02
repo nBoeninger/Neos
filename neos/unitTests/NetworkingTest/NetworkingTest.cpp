@@ -6,7 +6,7 @@
 #include "tcpIpClient.hpp"
 #include "TTcpIp.hpp"
 
-static int received = 0;
+static volatile int received = 0;
 
 void On_MsgReceived(Neos::Networking::TReceivedMessage msg)
 {

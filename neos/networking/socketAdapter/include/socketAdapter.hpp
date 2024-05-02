@@ -12,8 +12,7 @@
 #include "stdint.h"
 
 #if TARGET == LINUX
-  #include "sys/socket.h"
-  #include <unistd.h>
+  #include "socketProxy_linux.h"
 #elif TARGET == ESP32
 // TODO FIll in libs
 #endif
@@ -106,6 +105,9 @@ namespace Neos
          * @return 
          */
         int GetSocket();
+
+        size_t Send(const void* buffer, size_t size, int flags);
+        size_t Read(int socket, void* buffer, size_t count);
 
       private:
         int m_socket;

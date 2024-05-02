@@ -10,12 +10,17 @@ Variables may contain one of the following shortcuts:
    - elem = element
 
 # NewTypes
-new types are indicated with an _t after the variable name.
+New types are indicated with an capital T before the typename.
 
 # Class Names
 Classes are written in PascalCase.
 ## Class Functions
 Class Functions start with a Capital Letter
+## Signals Names
+Signals will start with an capital S.
+
+# Slots
+Slots starts with the Prefix On, followed by one underscore -> On_FunctionName.
 
 # Comments
 Comments are written to describe the why, not the how, since the code explains that.

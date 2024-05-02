@@ -29,15 +29,22 @@ namespace Neos
         ret = m_socketAdapter.Connect((struct sockaddr*)&m_tcpAddr, sizeof(m_tcpAddr));
         if (ret == 0)
         {
-          break;
+          return true;
         }
-        sleepForSec(1);
+        delay_sec(1);
       }
+      return false;
+    }
 
-      char testMsg[10] = "TEST";
-      send(m_socketAdapter.GetSocket(), testMsg, 5, 0);
-      sleepForSec(100);
+    bool TcpIpClient::Send(const void* buffer, size_t size)
+    {
+      size_t ret = m_socketAdapter.Send(buffer, size, 0);
       return (ret > 0) ? true : false;
+    }
+
+    size_t TcpIpClient::Read(int socket)
+    {
+      return true;
     }
 
   }

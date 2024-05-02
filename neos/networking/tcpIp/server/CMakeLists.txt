@@ -19,4 +19,5 @@ target_link_libraries(${This} PUBLIC
     Configurations
     HtonAdapter
     TCPIPCommon
+    Timing
 )

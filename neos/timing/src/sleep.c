@@ -1,11 +1,11 @@
 
 #include "sleep.h"
 
-void sleepForSec(uint32_t sleep_s)
+void delay_sec(uint32_t delay_sec)
 {
-  if (sleep_s < 0)
+  if (delay_sec < 0)
   {
     return;
   }
-  sleep(sleep_s);
+  sleep(delay_sec);
 }

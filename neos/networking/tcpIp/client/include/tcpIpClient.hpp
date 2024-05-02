@@ -26,6 +26,8 @@ namespace Neos
         ~TcpIpClient();
 
         bool Start();
+        size_t Read(int socket);
+        bool Send(const void* buffer, size_t size);
 
       private:
         uint8_t m_connectionRetries;

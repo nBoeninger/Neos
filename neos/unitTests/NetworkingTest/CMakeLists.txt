@@ -9,6 +9,7 @@ target_link_libraries(${This} PUBLIC
     gtest_main
     TCPIPServer
     TCPIPClient
+    TCPIPCommon
 )
 
 add_test(UnitTest_Networking ${This})

@@ -7,7 +7,7 @@
 
 static int checkValue;
 
-void onTest(int input)
+void On_Test(int input)
 {
     checkValue = input;
 }
@@ -24,13 +24,13 @@ class TestClass
   public:
   TestClass() : receivedValueINT(0){};
 
-  void onSignalReceivedINT(int input)
+  void On_SignalReceivedINT(int input)
   {
     receivedValueINT = input;
   };
   int receivedValueINT;
 
-  void onSignalReceivedSTRUCT(EmittedDataStruct input)
+  void On_SignalReceivedSTRUCT(EmittedDataStruct input)
   {
     for (int bufferSize = 0; bufferSize < BUFFERSIZE; bufferSize++)
     {
@@ -47,7 +47,7 @@ class TestClass
 TEST(SlotAndSingalsTest, CanConnectFunctionsAndEmit)
 {
   Neos::Communication::Signal<int> testSignal;
-  testSignal.Connect(onTest);
+  testSignal.Connect(On_Test);
   testSignal.Emit(2);
   ASSERT_TRUE(checkValue == 2) << "CheckValue not as expected, got " << checkValue << " expected 2";
 }
@@ -56,7 +56,7 @@ TEST(SlotAndSignalTest, CanConnectClassFunctionsAndEmit)
 {
   Neos::Communication::Signal<int> testSignal;
   TestClass testClass;
-  testSignal.Connect(&testClass, &TestClass::onSignalReceivedINT);
+  testSignal.Connect(&testClass, &TestClass::On_SignalReceivedINT);
   testSignal.Emit(42);
   ASSERT_TRUE(testClass.receivedValueINT == 42) << "ReceivedValue not as expected, got " << testClass.receivedValueINT << " expected 42";   
 }
@@ -65,7 +65,7 @@ TEST(SlotsAndSignalsTest, CanEmitStructs)
 {
   Neos::Communication::Signal<EmittedDataStruct> testSignal;
   TestClass testClass;
-  testSignal.Connect(&testClass, &TestClass::onSignalReceivedSTRUCT);
+  testSignal.Connect(&testClass, &TestClass::On_SignalReceivedSTRUCT);
   EmittedDataStruct testStruct;
   testStruct.integer = 77;
   testStruct.floating = 4.78f;

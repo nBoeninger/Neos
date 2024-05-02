@@ -12,7 +12,7 @@ extern "C" {
 // TODO FIll in libs
 #endif
 
-void sleepForSec(uint32_t sleep_s);
+void delay_sec(uint32_t delay_sec);
 
 #if __cplusplus
 }

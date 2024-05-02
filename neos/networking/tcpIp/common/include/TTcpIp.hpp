@@ -1,6 +1,7 @@
 #pragma once
 
 #include "stdint.h"
+#include "cstddef"
 
 namespace Neos
 {
@@ -17,6 +18,11 @@ namespace Neos
     } IpAddress;
     uint16_t port;
    } TTcpIpConfig;
-  }
 
+   typedef struct TReceivedMessage
+   {
+    uint8_t* payload;
+    size_t payloadSize;
+   } TReceivedMessage;
+  }
 }

@@ -12,30 +12,24 @@ namespace Neos
   {
 
     #define MSG_BUFFER 1024
-    #define NBR_OF_BUFFERS 2
 
-    class TcpIpServer : ITcpIp
+    class TcpIpServer :  public ITcpIp
     {
-      // public signal
-      public:
-        Neos::Communication::Signal<TReceivedMessage> SMessageReceived;
-
       public:
 
         TcpIpServer() : ITcpIp() {};
-        TcpIpServer(TTcpIpConfig serverConfig);
+        TcpIpServer(TcpIpConfig_t serverConfig);
 
         ~TcpIpServer();
 
         bool Start();
-        size_t Read(int socket);
+        int WaitForConnections();
+        size_t Read(int socketfd);
         bool Send(const void* buffer, size_t size);
 
-        void Run();
-
       private:
-        uint8_t m_activeBuffer;
-        uint8_t m_msgBuffer[NBR_OF_BUFFERS][MSG_BUFFER];
+        uint8_t m_msgBuffer[MSG_BUFFER];
+
     };
   }
 }

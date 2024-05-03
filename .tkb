@@ -1,0 +1,67 @@
+{
+  "scope": "Workspace",
+  "tasks": {
+    "task-7_xGf4yOKTDyohkCvy709": {
+      "id": "task-7_xGf4yOKTDyohkCvy709",
+      "description": "Abstract Kernel Functions\n",
+      "columnId": "column-todo"
+    },
+    "5KICkE-WCriHYzXTCQhnV": {
+      "id": "5KICkE-WCriHYzXTCQhnV",
+      "description": "Http Protocol",
+      "columnId": "column-todo"
+    },
+    "LDZ4bOQaPhcaR2NJ2NKrY": {
+      "id": "LDZ4bOQaPhcaR2NJ2NKrY",
+      "description": "Rename all c functions to defined standard",
+      "columnId": "column-done"
+    },
+    "Bn3Hew8LifAvvkPbprcac": {
+      "id": "Bn3Hew8LifAvvkPbprcac",
+      "description": "- Rewrite TcpIP Test\n- Rewrite TcpIP Server Struct",
+      "columnId": "column-doing"
+    },
+    "NYcYmE31pglOg6oKrfam6": {
+      "id": "NYcYmE31pglOg6oKrfam6",
+      "description": "Check Types Convetion are met",
+      "columnId": "column-todo"
+    },
+    "o0oJFKHrWvGyXz5LyRow4": {
+      "id": "o0oJFKHrWvGyXz5LyRow4",
+      "description": "Abstract thread functions\n",
+      "columnId": "column-todo"
+    },
+    "amXIJky0lFAesYvAvUAjx": {
+      "id": "amXIJky0lFAesYvAvUAjx",
+      "description": "Rename the singlas.hpp -> slotsAndSignals.hpp?",
+      "columnId": "column-todo"
+    }
+  },
+  "columns": [
+    {
+      "id": "column-todo",
+      "title": "Backlog",
+      "tasksIds": [
+        "task-7_xGf4yOKTDyohkCvy709",
+        "5KICkE-WCriHYzXTCQhnV",
+        "NYcYmE31pglOg6oKrfam6",
+        "o0oJFKHrWvGyXz5LyRow4",
+        "amXIJky0lFAesYvAvUAjx"
+      ]
+    },
+    {
+      "id": "column-doing",
+      "title": "In Progress",
+      "tasksIds": [
+        "Bn3Hew8LifAvvkPbprcac"
+      ]
+    },
+    {
+      "id": "column-done",
+      "title": "Done",
+      "tasksIds": [
+        "LDZ4bOQaPhcaR2NJ2NKrY"
+      ]
+    }
+  ]
+}

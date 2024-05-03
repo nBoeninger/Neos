@@ -17,9 +17,9 @@ extern "C" {
 // TODO FIll in libs
 #endif
 
-uint32_t htonlAdapter(uint32_t net);
+uint32_t HtonlProxy_htonl(uint32_t net);
 
-uint16_t htonsAdapter(uint16_t net);
+uint16_t HtonlProxy_htons(uint16_t net);
 
 #ifdef __cplusplus
 }

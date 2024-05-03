@@ -1,10 +1,11 @@
 #pragma once
 
 /**
- * @brief The Socket Proxy Module
+ * @brief The Socket Adapter Module
  * @details This module provides an layer of abstraction 
  *            for the sockets used by the TcpIP Server Class
- *            Something between proxy and adapter...
+ *            TheAdapter calls the "proxy" functions which will t
+ *            hen call the kernel functions.
 */
 
 #include "eConfigs.hpp"

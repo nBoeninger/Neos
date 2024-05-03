@@ -7,12 +7,12 @@ namespace Neos
   namespace Networking
   {
 
-    TcpIpClient::TcpIpClient(TTcpIpConfig clientConfig) :
+    TcpIpClient::TcpIpClient(TcpIpConfig_t clientConfig) :
       ITcpIp(clientConfig), m_connectionRetries(CONNECTION_RETRIES)
     {
     }
 
-    TcpIpClient::TcpIpClient(TTcpIpConfig clientConfig, uint8_t conncetionRetries) :
+    TcpIpClient::TcpIpClient(TcpIpConfig_t clientConfig, uint8_t conncetionRetries) :
       ITcpIp(clientConfig), m_connectionRetries(conncetionRetries)
     {
     }
@@ -21,7 +21,7 @@ namespace Neos
     {
     }
 
-    bool TcpIpClient::Start()
+    bool TcpIpClient::Connect()
     {
       int ret = -1;
       for (int tries = 0; tries <= m_connectionRetries; tries++)
@@ -42,7 +42,7 @@ namespace Neos
       return (ret > 0) ? true : false;
     }
 
-    size_t TcpIpClient::Read(int socket)
+    size_t TcpIpClient::Read(int socketfd)
     {
       return true;
     }

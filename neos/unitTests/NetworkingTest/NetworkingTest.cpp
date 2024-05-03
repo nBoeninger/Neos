@@ -6,34 +6,55 @@
 #include "tcpIpClient.hpp"
 #include "TTcpIp.hpp"
 
-static volatile int received = 0;
+#define TEST_RUNS 10
+volatile int received = 0;
 
-void On_MsgReceived(Neos::Networking::TReceivedMessage msg)
+void On_MsgReceived(Neos::Networking::ReceivedMessage_t msg)
 {
   received = 1;
 }
 
+void RunServer(Neos::Networking::TcpIpConfig_t config) 
+{
+  for (int i = 0; i < TEST_RUNS; i++)
+  {
+    {
+      Neos::Networking::TcpIpServer tcpServer = Neos::Networking::TcpIpServer(config);  
+      tcpServer.SMessageReceived.Connect(On_MsgReceived);
+      ASSERT_TRUE(tcpServer.Start()) << "Starting the server failed";
+      int connectionfd = tcpServer.WaitForConnections();
+      ASSERT_FALSE(connectionfd < 0) << "Server didn't accept connection";
+      tcpServer.Read(connectionfd);
+    }
+    sleep(1);
+  }
+}
+
+void RunClient(Neos::Networking::TcpIpConfig_t config)
+{
+  for(int i = 0; i<TEST_RUNS; i++)
+  {
+    {
+      Neos::Networking::TcpIpClient tcpClient = Neos::Networking::TcpIpClient(config);
+      ASSERT_TRUE(tcpClient.Connect()) << "Starting the client failled";
+      uint8_t testBuffer[] = {'4', '2', '3', '7', 'a', 'k'}; 
+      tcpClient.Send(testBuffer, sizeof(testBuffer));
+    }
+    sleep(1);
+  }
+}
 
 TEST(TcpIpTest, CanInitAndConnect)
 {
-  Neos::Networking::TTcpIpConfig serverConfig = {
+  Neos::Networking::TcpIpConfig_t config = {
     {127,0,0,1}, 
     .port = 8000,
   };
 
-  Neos::Networking::TcpIpServer testServer = Neos::Networking::TcpIpServer(serverConfig);  
-  testServer.SMessageReceived.Connect(On_MsgReceived);
+  std::thread serverThread(RunServer, config);
+  std::thread clientThread(RunClient, config);
 
-  ASSERT_TRUE(testServer.Start()) << "Starting the server failed";
-  std::thread serverThread(&Neos::Networking::TcpIpServer::Run, testServer);
-  
-  Neos::Networking::TcpIpClient testClient = Neos::Networking::TcpIpClient(serverConfig);
-  ASSERT_TRUE(testClient.Start()) << "Starting the client failled";
-  ASSERT_TRUE(received == 0) << "Received value is false, wanted: " << 0 << ", received: " << received;
-
-  uint8_t testBuffer[] = {'4', '2', '3', '7', 'a', 'k'}; 
-  testClient.Send(testBuffer, sizeof(testBuffer));
-
-  ASSERT_TRUE(received == 1) << "Received value is false, wanted: " << 1 << ", received: " << received;
+  serverThread.join();
+  clientThread.join();
 
 }

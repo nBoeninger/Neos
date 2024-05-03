@@ -1,6 +1,6 @@
-#include "htonAdapter.h"
+#include "htonProxy.h"
 
-uint32_t htonlAdapter(uint32_t net)
+uint32_t HtonlProxy_htonl(uint32_t net)
 {
   #if TARGET == LINUX
     return htonl(net);
@@ -9,7 +9,7 @@ uint32_t htonlAdapter(uint32_t net)
   #endif
 }
 
-uint16_t htonsAdapter(uint16_t net)
+uint16_t HtonlProxy_htons(uint16_t net)
 {
   #if TARGET == LINUX
     return htons(net);

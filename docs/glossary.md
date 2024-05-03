@@ -1,3 +1,5 @@
+# Guidelines
+
 # Variables Names
 Variables are named in camelCase. Pointer are indicated with an p_.  
 Member variables are indicated with an m_.
@@ -10,7 +12,8 @@ Variables may contain one of the following shortcuts:
    - elem = element
 
 # NewTypes
-New types are indicated with an capital T before the typename.
+New types are indicated with an _t after the typename. New types start with an captial letter.
+Files including the definition of new types may start with an capital T, if they only include type definitions.
 
 # Class Names
 Classes are written in PascalCase.

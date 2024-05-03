@@ -17,5 +17,5 @@ target_link_libraries(${This} PUBLIC
     SlotsAndSignals
     SocketAdapter
     Configurations
-    HtonAdapter
+    HtonProxy
 )

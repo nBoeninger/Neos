@@ -20,13 +20,13 @@ namespace Neos
     {
       public:
         TcpIpClient() : ITcpIp() {};
-        TcpIpClient(TTcpIpConfig clientConfig, uint8_t connectionRetries);
-        TcpIpClient(TTcpIpConfig clientConfig);
+        TcpIpClient(TcpIpConfig_t clientConfig, uint8_t connectionRetries);
+        TcpIpClient(TcpIpConfig_t clientConfig);
 
         ~TcpIpClient();
 
-        bool Start();
-        size_t Read(int socket);
+        bool Connect();
+        size_t Read(int socketfd);
         bool Send(const void* buffer, size_t size);
 
       private:

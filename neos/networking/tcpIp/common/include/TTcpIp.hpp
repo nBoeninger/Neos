@@ -9,7 +9,7 @@ namespace Neos
   namespace Networking
   {
 
-   typedef struct TTcpIpConfig
+   typedef struct TcpIpConfig
    {
     union IpAddress
     {
@@ -17,12 +17,19 @@ namespace Neos
       uint32_t addressValue;
     } IpAddress;
     uint16_t port;
-   } TTcpIpConfig;
+   } TcpIpConfig_t;
 
-   typedef struct TReceivedMessage
+   typedef struct ReceivedMessage
    {
     uint8_t* payload;
     size_t payloadSize;
-   } TReceivedMessage;
+   } ReceivedMessage_t;
+
+    typedef struct SendedMessage
+    {
+      // define msg at some point
+      void * dummy;
+    } SendedMessage_t;
+
   }
 }

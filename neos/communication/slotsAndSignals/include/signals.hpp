@@ -53,6 +53,7 @@ namespace Neos
     {
     public:
         Signal(){};
+        ~Signal();
         
         // connect functions
         void Connect(std::function<void(T)> s);
@@ -67,6 +68,11 @@ namespace Neos
         void Disconnect(Slot<T> s);
     };
     
+    template<class T>
+    Signal<T>::~Signal()
+    {
+
+    }
     
     template<class T>
     void Signal<T>::Connect(std::function<void(T)> s)

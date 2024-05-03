@@ -1,3 +1,2 @@
 add_subdirectory(tcpIp)
 add_subdirectory(socketAdapter)
-add_subdirectory(htonAdapter)

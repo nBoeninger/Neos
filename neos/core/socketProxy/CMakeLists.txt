@@ -1,4 +1,4 @@
-set(This HtonAdapter)
+set(This SocketProxy)
 
 project(${This} VERSION 0.0.0)
 
@@ -7,12 +7,8 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE)
 
-set(Headers
-    "include/htonAdapter.h"
-)
-set(Sources
-    "src/htonAdapter.c"
-)
+file(GLOB_RECURSE _SOURCES LIST_DIRECTORIES false include/*.hpp include/*.h src/*.cpp src/*.c)
+set(Sources ${_SOURCES})
 
 add_library(${This} STATIC ${Sources})
 target_include_directories(${This} PUBLIC ${PROJECT_SOURCE_DIR}/include)

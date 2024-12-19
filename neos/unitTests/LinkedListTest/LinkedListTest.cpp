@@ -1,7 +1,7 @@
 #include <functional>
 
 #include "gtest/gtest.h"
-#include "linkedList.hpp"
+#include "LinkedList.hpp"
 
 #define TESTLISTLENGHT 10
 #define INTLISTVALUE 5

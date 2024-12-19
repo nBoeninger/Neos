@@ -1,8 +1,8 @@
 #pragma once
 
-#include "socketAdapter.hpp"
+#include "SocketAdapter.hpp"
 #include "TTcpIp.hpp"
-#include "signals.hpp"
+#include "Signals.hpp"
 
 namespace Neos
 {
@@ -10,6 +10,9 @@ namespace Neos
   {
     class ITcpIp
     {
+
+      #define MSG_BUFFER 1024
+    
       public:
         Neos::Communication::Signal<ReceivedMessage_t> SMessageReceived;
         Neos::Communication::Signal<SendedMessage_t> SMessageSended;
@@ -20,12 +23,14 @@ namespace Neos
         ITcpIp(TcpIpConfig_t config);
         ~ITcpIp(); 
 
-        virtual bool Send(const void* buffer, size_t size) = 0;
-        virtual size_t Read(int socketfd) = 0;
+        bool Send(const void* buffer, size_t size);
+        size_t Read(int socketfd);
 
       protected:
         SocketAdapter m_socketAdapter;
         TSockAddr_in m_tcpAddr;
+
+        uint8_t m_msgBuffer[MSG_BUFFER];
     };
   }
 }

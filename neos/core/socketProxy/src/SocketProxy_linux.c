@@ -1,5 +1,5 @@
 
-#include "socketProxy_linux.h"
+#include "SocketProxy_linux.h"
 
 #include "sys/socket.h"
 #include <unistd.h>

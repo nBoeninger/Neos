@@ -4,8 +4,8 @@
 extern "C" {
 #endif
 
-#include "eConfigs.hpp"
-#include "sysDefines.hpp"
+#include "EConfigs.hpp"
+#include "SysDefines.hpp"
 #include "stdint.h"
 
 #if TARGET == LINUX

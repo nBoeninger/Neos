@@ -2,8 +2,8 @@
 #include "gtest/gtest.h"
 #include <thread>
 
-#include "tcpIpServer.hpp"
-#include "tcpIpClient.hpp"
+#include "TcpIpServer.hpp"
+#include "TcpIpClient.hpp"
 #include "TTcpIp.hpp"
 
 #define TEST_RUNS 10

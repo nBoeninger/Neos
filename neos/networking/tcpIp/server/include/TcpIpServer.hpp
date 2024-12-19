@@ -2,18 +2,16 @@
 
 #include "TTcpIp.hpp"
 #include "ITcpIp.hpp"
-#include "socketAdapter.hpp"
+#include "SocketAdapter.hpp"
+#include "Signals.hpp"
 #include "stdint.h"
-#include "signals.hpp"
 
 namespace Neos
 {
   namespace Networking
   {
 
-    #define MSG_BUFFER 1024
-
-    class TcpIpServer :  public ITcpIp
+   class TcpIpServer :  public ITcpIp
     {
       public:
 
@@ -24,12 +22,6 @@ namespace Neos
 
         bool Start();
         int WaitForConnections();
-        size_t Read(int socketfd);
-        bool Send(const void* buffer, size_t size);
-
-      private:
-        uint8_t m_msgBuffer[MSG_BUFFER];
-
     };
   }
 }

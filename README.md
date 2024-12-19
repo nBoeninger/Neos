@@ -5,7 +5,6 @@ Project Neos is a collection of C/C++ Libraries. Are there faster librariers ? Y
 The first goal of Neos is to power my private project with an esp32 µC. But i intend to expand everything for diffrent hardware at some point.
 Suggestion, Comments or Ideas are always welcome.
 
-
 ## Vision
 The Vision of Neos is to support the devlopment of embedded systems. The Neos Project can be used as a base project, providing some libraries I find usefull for developing embedded software.
 The Structure of the Project:

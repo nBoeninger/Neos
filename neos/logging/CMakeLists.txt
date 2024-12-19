@@ -1,4 +1,4 @@
-set(This Configurations)
+set(This Logging)
 
 project(${This} VERSION 0.0.0)
 
@@ -9,5 +9,10 @@ set(CMAKE_POSITION_INDEPENDENT_CODE)
 
 file(GLOB_RECURSE _SOURCES LIST_DIRECTORIES false include/*.hpp src/*.cpp)
 set(Sources ${_SOURCES})
+
 add_library(${This} STATIC ${Sources})
 target_include_directories(${This} PUBLIC ${PROJECT_SOURCE_DIR}/include)
+
+target_link_libraries(${This} PUBLIC
+    Configurations
+)

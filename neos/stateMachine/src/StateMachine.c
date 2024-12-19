@@ -1,6 +1,6 @@
 #include <string.h>
 #include <stdlib.h>
-#include "stateMachine.h"
+#include "StateMachine.h"
 
 bool StateMachine_Initialize(stateMachine_t* stateMachine, stateTable_t* stateTable, uint8_t tableSize, void* context)
 {

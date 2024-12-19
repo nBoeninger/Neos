@@ -1,7 +1,7 @@
 #ifndef SIGNAL_HPP
 #define SIGNAL_HPP
 
-#include "linkedList.hpp"
+#include "LinkedList.hpp"
 #include <cstddef>
 #include <functional>
 

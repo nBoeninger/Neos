@@ -7,12 +7,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE)
 
-set(Headers
-    "include/stateMachine.h"
-)
-set(Sources
-    "src/stateMachine.c"
-)
-
+file(GLOB_RECURSE _SOURCES LIST_DIRECTORIES false include/*.h src/*.c)
+set(Sources ${_SOURCES})
 add_library(${This} STATIC ${Sources})
 target_include_directories(${This} PUBLIC ${PROJECT_SOURCE_DIR}/include)

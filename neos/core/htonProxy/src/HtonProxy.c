@@ -1,4 +1,4 @@
-#include "htonProxy.h"
+#include "HtonProxy.h"
 
 uint32_t HtonlProxy_htonl(uint32_t net)
 {

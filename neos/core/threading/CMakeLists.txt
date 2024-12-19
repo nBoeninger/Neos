@@ -1,0 +1,2 @@
+add_subdirectory(threadProxy)
+add_subdirectory(threadAdapter)

@@ -1,6 +1,6 @@
 
 #include "gtest/gtest.h"
-#include "validReturn.hpp"
+#include "ValidReturn.hpp"
 
 TEST(ValidReturnTest, CanInit)
 {

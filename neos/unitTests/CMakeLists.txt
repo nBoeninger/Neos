@@ -6,6 +6,7 @@ add_subdirectory(StateMachineTest)
 add_subdirectory(LinkedListTest)
 add_subdirectory(DataObjectTest)
 add_subdirectory(NetworkingTest)
+add_subdirectory(ThreadsTest)
 
 file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false *.h *.cpp)
 set(Sources ${TEST_SOURCES})
@@ -21,4 +22,6 @@ target_link_libraries(${This} PUBLIC
   DataObject
   TCPIPServer
   TCPIPClient
+  Threading
+  
 )

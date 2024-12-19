@@ -1,6 +1,6 @@
 
 #include "gtest/gtest.h"
-#include "stateMachine.h"
+#include "StateMachine.h"
 
 static int testingStates;
 

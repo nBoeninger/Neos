@@ -8,12 +8,12 @@
  *            hen call the kernel functions.
 */
 
-#include "eConfigs.hpp"
-#include "sysDefines.hpp"
+#include "EConfigs.hpp"
+#include "SysDefines.hpp"
 #include "stdint.h"
 
 #if TARGET == LINUX
-  #include "socketProxy_linux.h"
+  #include "SocketProxy_linux.h"
 #elif TARGET == ESP32
 // TODO FIll in libs
 #endif

@@ -1,5 +1,5 @@
 #pragma once
 
-#include "eConfigs.hpp"
+#include "EConfigs.hpp"
 
 #define TARGET LINUX

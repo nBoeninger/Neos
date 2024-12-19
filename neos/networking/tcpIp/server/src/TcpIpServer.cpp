@@ -1,6 +1,6 @@
-#include "tcpIpServer.hpp"
-#include "htonProxy.h"
-#include "sleep.h"
+#include "TcpIpServer.hpp"
+#include "HtonProxy.h"
+#include "Sleep.h"
 
 namespace Neos
 {
@@ -37,23 +37,6 @@ namespace Neos
         return -1;
       }
       return newsockfd;
-    }
-
-    size_t TcpIpServer::Read(int socketfd)
-    {
-      size_t ret =  m_socketAdapter.Read(socketfd, &m_msgBuffer, sizeof(m_msgBuffer));
-     
-      SMessageReceived.Emit({
-        .payload = m_msgBuffer,
-        .payloadSize = ret,
-      });
-
-     return ret;
-    }
-
-    bool TcpIpServer::Send(const void* buffer, size_t size)
-    {
-      return true;
     }
   }
 }

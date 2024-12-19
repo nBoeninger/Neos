@@ -4,7 +4,7 @@
  * @brief The DataObject Module
 */
 
-#include "signals.hpp"
+#include "Signals.hpp"
 
 namespace Neos
 {

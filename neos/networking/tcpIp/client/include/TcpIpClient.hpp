@@ -2,7 +2,7 @@
 
 #include "ITcpIp.hpp"
 #include "TTcpIp.hpp"
-#include "socketAdapter.hpp"
+#include "SocketAdapter.hpp"
 #include "stdint.h"
 
 namespace Neos
@@ -16,7 +16,7 @@ namespace Neos
 
     #define CONNECTION_RETRIES 5
 
-    class TcpIpClient : ITcpIp
+    class TcpIpClient : public ITcpIp
     {
       public:
         TcpIpClient() : ITcpIp() {};
@@ -26,8 +26,6 @@ namespace Neos
         ~TcpIpClient();
 
         bool Connect();
-        size_t Read(int socketfd);
-        bool Send(const void* buffer, size_t size);
 
       private:
         uint8_t m_connectionRetries;

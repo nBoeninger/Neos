@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "gtest/gtest.h"
-#include "signals.hpp"
+#include "Signals.hpp"
 
 #define BUFFERSIZE 40
 

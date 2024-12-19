@@ -1,5 +1,5 @@
-#include "tcpIpClient.hpp"
-#include "sleep.h"
+#include "TcpIpClient.hpp"
+#include "Sleep.h"
 
 namespace Neos
 {
@@ -34,17 +34,6 @@ namespace Neos
         delay_sec(1);
       }
       return false;
-    }
-
-    bool TcpIpClient::Send(const void* buffer, size_t size)
-    {
-      size_t ret = m_socketAdapter.Send(buffer, size, 0);
-      return (ret > 0) ? true : false;
-    }
-
-    size_t TcpIpClient::Read(int socketfd)
-    {
-      return true;
     }
 
   }

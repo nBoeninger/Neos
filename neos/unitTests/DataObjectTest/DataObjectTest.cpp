@@ -1,7 +1,7 @@
 #include <functional>
 
 #include "gtest/gtest.h"
-#include "dataObject.hpp"
+#include "DataObject.hpp"
 
 TEST(DataObjectTest, CreateEmptyObject)
 {

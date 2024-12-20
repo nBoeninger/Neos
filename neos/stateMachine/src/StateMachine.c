@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "StateMachine.h"
 
-bool StateMachine_Initialize(stateMachine_t* stateMachine, stateTable_t* stateTable, uint8_t tableSize, void* context)
+bool StateMachine_Initialize(StateMachine_t* stateMachine, StateTable_t* stateTable, uint8_t tableSize, void* context)
 {
   if ((tableSize == 0)
     || (tableSize >= StateMachine_MAXSIZE)
@@ -27,7 +27,7 @@ bool StateMachine_Initialize(stateMachine_t* stateMachine, stateTable_t* stateTa
   return true;
 }
 
-bool StateMachine_AddState(stateMachine_t* stateMachine, stateTable_t stateTable)
+bool StateMachine_AddState(StateMachine_t* stateMachine, StateTable_t stateTable)
 {
 
   if ((stateMachine->addedStates >= stateMachine->tableSize))
@@ -40,7 +40,7 @@ bool StateMachine_AddState(stateMachine_t* stateMachine, stateTable_t stateTable
   return true;
 }
 
-bool StateMachine_SwitchToState(stateMachine_t* stateMachine, uint8_t stateId)
+bool StateMachine_SwitchToState(StateMachine_t* stateMachine, uint8_t stateId)
 {
   if ((stateId == stateMachine->currentState)
     || (stateId > stateMachine->addedStates)
@@ -71,7 +71,7 @@ bool StateMachine_SwitchToState(stateMachine_t* stateMachine, uint8_t stateId)
   }
 }
 
-uint8_t StateMachine_GetCurrentState(stateMachine_t* stateMachine)
+uint8_t StateMachine_GetCurrentState(StateMachine_t* stateMachine)
 {
   return stateMachine->currentState;
 }

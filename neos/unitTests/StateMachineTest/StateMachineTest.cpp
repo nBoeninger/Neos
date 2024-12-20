@@ -35,21 +35,21 @@ void OnStateChangedThree(void *context)
 
 TEST(StateMachineTest, CanInit)
 {
-  stateMachine_t stateMachine;
+  StateMachine_t stateMachine;
   size_t tableSize = 10;
-  stateTable_t stateTable[tableSize];
+  StateTable_t stateTable[tableSize];
   bool isInitialized = StateMachine_Initialize(&stateMachine, stateTable, tableSize, nullptr);
   ASSERT_TRUE(isInitialized) << "Unable to Initialize StateMachine";
 }
 
 TEST(StateMachineTest, CanAddStates)
 {
-  stateMachine_t stateMachine;
+  StateMachine_t stateMachine;
   size_t tableSize = 10;
-  stateTable_t stateTable[tableSize];
+  StateTable_t stateTable[tableSize];
   StateMachine_Initialize(&stateMachine, stateTable, tableSize, nullptr);
 
-  stateTable_t state_1 = {
+  StateTable_t state_1 = {
     .stateId = 0x00,
     .onEnter = nullptr,
     .onExit = nullptr,
@@ -62,12 +62,12 @@ TEST(StateMachineTest, CanAddStates)
 
 TEST(StateMachineTest, CanAddAndCallState)
 {
-  stateMachine_t stateMachine;
+  StateMachine_t stateMachine;
   size_t tableSize = 10;
-  stateTable_t stateTable[tableSize];
+  StateTable_t stateTable[tableSize];
   StateMachine_Initialize(&stateMachine, stateTable, tableSize, nullptr);
 
-  stateTable_t states[] = {
+  StateTable_t states[] = {
     {
       .stateId = 0x00,
       .onEnter = OnEnterStateOne,

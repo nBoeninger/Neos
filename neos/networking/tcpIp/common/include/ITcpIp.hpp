@@ -28,7 +28,7 @@ namespace Neos
 
       protected:
         SocketAdapter m_socketAdapter;
-        TSockAddr_in m_tcpAddr;
+        SockAddr_t m_tcpAddr;
 
         uint8_t m_msgBuffer[MSG_BUFFER];
     };

@@ -28,7 +28,7 @@ namespace Neos
     /**
      * @brief TSockAddr_in, adapter for the real struct handled by the kernel 
      */
-    typedef struct TSockAddr_in 
+    typedef struct SockAddr_t 
     {
       int16_t sin_family;
       uint16_t sin_port;
@@ -37,7 +37,7 @@ namespace Neos
         uint32_t s_addr;
       } sin_addr;
       uint8_t sin_zero[8];
-    }TSockAddr_in;
+    }SockAddr_t;
 
     /**
      * @brief The SocketProxy Class
@@ -115,7 +115,7 @@ namespace Neos
         int m_domain;
         int m_protocol;
         int m_type;
-        TSockAddr_in m_addrIn;
+        SockAddr_t m_addrIn;
         const struct sockaddr* m_addr;
         socklen_t m_addrlen;
     };

@@ -1,17 +1,18 @@
 
 #include "gtest/gtest.h"
 #include "ThreadAdapter.hpp"
-#include "Sleep.h"
+#include "Timing.h"
 
 TEST(ThreadsTest, CanCreateThread)
 {
-  Neos::ThreadAdapter thread_one = Neos::ThreadAdapter(Neos::TThreadAttributes{
+  Neos::Logging logger = Neos::Logging("Test", Neos::ELogLevel::ERROR);
+  Neos::ThreadAdapter thread_one = Neos::ThreadAdapter(Neos::ThreadAttributes_t{
     .schedulingPriority = 0,
     .schedulingPolicy = 0,
     .stackSize = 100,
-  }, "TestThread");
+  }, "TestThread", &logger);
 
   thread_one.Start();
 
-  sleep(10);
+  Delay(10);
 }

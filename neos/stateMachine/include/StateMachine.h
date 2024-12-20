@@ -23,26 +23,26 @@ extern "C"
  * @param OnState Function that will be called after entering the state
  * @param onStateChanged Function that will be called when changing a state
 */
-typedef struct stateTable_t
+typedef struct StateTable_t
 {
   uint8_t stateId;
   void (*onEnter)(void* context);
   void (*onExit)(void* context);
   void (*onState)(void* context); 
   void (*onStateChanged) (void* context);
-} stateTable_t;
+} StateTable_t;
 
 /**
  * @brief The State Machine Data Struct
 */
-typedef struct stateMachine_t
+typedef struct StateMachine_t
 {
   void* context;
   int8_t currentState;
   uint8_t tableSize;
   uint8_t addedStates;
-  stateTable_t* stateTable;
-} stateMachine_t;
+  StateTable_t* stateTable;
+} StateMachine_t;
 
 /**
  * @brief Initialize the State Machine
@@ -51,7 +51,7 @@ typedef struct stateMachine_t
  * @param[in] tableSize: The size of the StateTable
  * @return true if successfull
 */
-bool StateMachine_Initialize(stateMachine_t* stateMachine, stateTable_t* stateTable,  uint8_t tableSize, void* context);
+bool StateMachine_Initialize(StateMachine_t* stateMachine, StateTable_t* stateTable,  uint8_t tableSize, void* context);
 
 /**
  * @brief Add a State to the Machine
@@ -59,7 +59,7 @@ bool StateMachine_Initialize(stateMachine_t* stateMachine, stateTable_t* stateTa
  * @param[in] stateTable: The Table to be added
  * @return true if successfull
 */
-bool StateMachine_AddState(stateMachine_t* stateMachine, stateTable_t stateTable);
+bool StateMachine_AddState(StateMachine_t* stateMachine, StateTable_t stateTable);
 
 /**
  * @brief Switch to State
@@ -68,13 +68,13 @@ bool StateMachine_AddState(stateMachine_t* stateMachine, stateTable_t stateTable
  * @param[in] stateId: The StateId to switch to
  * @return true if successfull
 */
-bool StateMachine_SwitchToState(stateMachine_t* stateMachine, uint8_t stateId);
+bool StateMachine_SwitchToState(StateMachine_t* stateMachine, uint8_t stateId);
 
 /**
  * @brief Get the current State
  * @return the StateId
 */
-uint8_t StateMachine_GetCurrentState(stateMachine_t* stateMachine);
+uint8_t StateMachine_GetCurrentState(StateMachine_t* stateMachine);
 
 
 #ifdef __cplusplus

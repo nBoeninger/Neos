@@ -1,5 +1,5 @@
 #include "TcpIpClient.hpp"
-#include "Sleep.h"
+#include "Timing.h"
 
 namespace Neos
 {
@@ -31,7 +31,7 @@ namespace Neos
         {
           return true;
         }
-        delay_sec(1);
+        Delay(1);
       }
       return false;
     }

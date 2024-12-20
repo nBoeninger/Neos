@@ -1,6 +1,6 @@
 #include "TcpIpServer.hpp"
 #include "HtonProxy.h"
-#include "Sleep.h"
+#include "Timing.h"
 
 namespace Neos
 {

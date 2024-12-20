@@ -1,4 +1,7 @@
 {
   "C_Cpp.errorSquiggles": "disabled",
-  "mayank1513.trello-kanban.Workspace.filePath": ".tkb"
+  "mayank1513.trello-kanban.Workspace.filePath": ".tkb",
+  "files.associations": {
+    "time.h": "c"
+  }
 }

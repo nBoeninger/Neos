@@ -1,4 +1,4 @@
-set(This Logging)
+set(This MutexProxy)
 
 project(${This} VERSION 0.0.0)
 
@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE)
 
-file(GLOB_RECURSE _SOURCES LIST_DIRECTORIES false include/*.hpp src/*.cpp)
+file(GLOB_RECURSE _SOURCES LIST_DIRECTORIES false include/*.h src/*.c)
 set(Sources ${_SOURCES})
 
 add_library(${This} STATIC ${Sources})
@@ -15,7 +15,4 @@ target_include_directories(${This} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 target_link_libraries(${This} PUBLIC
     Configurations
-    FileHandler
-    Timing
-    Mutex
 )

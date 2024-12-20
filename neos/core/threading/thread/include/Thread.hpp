@@ -16,13 +16,13 @@ namespace Neos
     int stackSize;
   }ThreadAttributes_t;
 
-  class ThreadAdapter
+  class Thread
   {
     public:
 
-      ThreadAdapter(ThreadAttributes_t attributes, const char* threadName, Logging* logger);
-      ThreadAdapter(ThreadAttributes_t attributes, const char * threadName);
-      ~ThreadAdapter();
+      Thread(ThreadAttributes_t attributes, const char* threadName, Logging* logger);
+      Thread(ThreadAttributes_t attributes, const char * threadName);
+      ~Thread();
 
       void Initialize();
       void Run();

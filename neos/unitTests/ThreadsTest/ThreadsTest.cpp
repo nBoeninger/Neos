@@ -1,12 +1,12 @@
 
 #include "gtest/gtest.h"
-#include "ThreadAdapter.hpp"
+#include "Thread.hpp"
 #include "Timing.h"
 
 TEST(ThreadsTest, CanCreateThread)
 {
   Neos::Logging logger = Neos::Logging("Test", Neos::ELogLevel::ERROR);
-  Neos::ThreadAdapter thread_one = Neos::ThreadAdapter(Neos::ThreadAttributes_t{
+  Neos::Thread thread_one = Neos::Thread(Neos::ThreadAttributes_t{
     .schedulingPriority = 0,
     .schedulingPolicy = 0,
     .stackSize = 100,

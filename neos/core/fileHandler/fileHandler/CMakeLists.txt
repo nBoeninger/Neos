@@ -1,4 +1,4 @@
-set(This Logging)
+set(This FileHandler)
 
 project(${This} VERSION 0.0.0)
 
@@ -15,7 +15,5 @@ target_include_directories(${This} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 target_link_libraries(${This} PUBLIC
     Configurations
-    FileHandler
-    Timing
-    Mutex
+    FileProxy
 )

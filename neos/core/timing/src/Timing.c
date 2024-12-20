@@ -1,4 +1,5 @@
 #include "Timing.h"
+#include "stdio.h"
 
 #if TARGET == LINUX
   #include <time.h>
@@ -6,6 +7,14 @@
   int GetCurrentTicks()
   {
     return (int)time(NULL);
+  }
+
+  void GetCurrentDate(char* buffer)
+  {
+    struct tm* ptr;
+    time_t test = time(NULL);
+    ptr = localtime(&test);
+    sprintf(buffer, "%s", asctime(ptr));
   }
 
 #elif TARGET == ESP32

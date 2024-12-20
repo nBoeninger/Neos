@@ -1,4 +1,5 @@
 #include "Logging.hpp"
+#include "FileHandler.hpp"
 #include "SysDefines.hpp"
 #include "Timing.h"
 
@@ -19,7 +20,6 @@ namespace Neos
   {
     m_filename.append(".log");
     m_path.append(m_filename);
-    m_fileDescriptor = nullptr;
   }
 
   void Logging::Log(Neos::ELogLevel level, std::string logMessage, std::string contextName)
@@ -27,6 +27,7 @@ namespace Neos
     #if LOGGING
       if (level >= m_logLevel)
       {
+        Neos::Mutex lock = Neos::Mutex();
         std::string formatedLogMessage = FormatMessage(logMessage, contextName, level);
         WriteToFile(formatedLogMessage);
         
@@ -65,13 +66,8 @@ namespace Neos
 
   void Logging::WriteToFile(std::string logMessage)
   {
-    
-    m_fileDescriptor = FileProxy_open(m_path.c_str(), "a");
-    if (m_fileDescriptor != nullptr)
-    {
-      FileProxy_put(m_fileDescriptor, logMessage.c_str());
-      FileProxy_close(m_fileDescriptor);
-    }
+    Neos::FileHandler handler = Neos::FileHandler(m_path.c_str());
+    handler.Write(logMessage.c_str());
   }
 
   void Logging::WriteToStream(std::string logMessage)
@@ -116,10 +112,18 @@ namespace Neos
       break;
     }
 
-    sprintf(buffer, "%d - %s - %s: %s\n", GetCurrentTicks(), contextName.c_str(), logLevelText.c_str(), logMessage.c_str());
+    char currentTime[MAX_DATE_LENGHT];
+    GetCurrentDate(currentTime);
+    std::string date = currentTime;
+    int pos = date.find("\n");
+    if (pos != 0)
+    {
+      date.erase(pos);
+    }
+
+    sprintf(buffer, "%s - %s - %s: %s\n", date.c_str(), contextName.c_str(), logLevelText.c_str(), logMessage.c_str());
     formatedLogMessage.append(buffer);
     
     return formatedLogMessage;
   }
-
 }

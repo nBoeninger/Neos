@@ -1,25 +1,25 @@
-#include "ThreadAdapter.hpp"
+#include "Thread.hpp"
 #include "SysDefines.hpp"
 
-Neos::ThreadAdapter::ThreadAdapter(ThreadAttributes_t attributes, const char* threadName, Logging* logger):
+Neos::Thread::Thread(ThreadAttributes_t attributes, const char* threadName, Logging* logger):
   m_threadName(threadName), m_attributes(attributes), m_logger(logger)
 {
   CreateThreadParameter();
 }
 
-Neos::ThreadAdapter::ThreadAdapter(ThreadAttributes_t attributes, const char* threadName):
+Neos::Thread::Thread(ThreadAttributes_t attributes, const char* threadName):
   m_threadName(threadName), m_attributes(attributes)
 {
   m_logger = nullptr;
   CreateThreadParameter();
 }
 
-Neos::ThreadAdapter::~ThreadAdapter()
+Neos::Thread::~Thread()
 {
 
 }
 
-void Neos::ThreadAdapter::CreateThreadParameter()
+void Neos::Thread::CreateThreadParameter()
 {
   int ret = ThreadProxy_initParameter(&m_parameter);
   if (ret != 0)
@@ -54,14 +54,14 @@ void Neos::ThreadAdapter::CreateThreadParameter()
   }
 }
 
-void Neos::ThreadAdapter::Kill()
+void Neos::Thread::Kill()
 {
 
 }
 
-void Neos::ThreadAdapter::Start()
+void Neos::Thread::Start()
 {
-  int ret = ThreadProxy_create(&m_threadHandler, Neos::ThreadAdapter::RunFunction, this, &m_parameter);
+  int ret = ThreadProxy_create(&m_threadHandler, Neos::Thread::RunFunction, this, &m_parameter);
   if (ret != 0)
   {
     char buffer[60];
@@ -74,18 +74,18 @@ void Neos::ThreadAdapter::Start()
   }
 }
 
-void Neos::ThreadAdapter::Stop()
+void Neos::Thread::Stop()
 {
 
 }
 
-FunctionReturn_t Neos::ThreadAdapter::RunFunction(void* context)
+FunctionReturn_t Neos::Thread::RunFunction(void* context)
 {
-  Neos::ThreadAdapter* self =  static_cast<Neos::ThreadAdapter*>(context);
+  Neos::Thread* self =  static_cast<Neos::Thread*>(context);
   return nullptr;
 }
 
-void Neos::ThreadAdapter::LogInfo(std::string message)
+void Neos::Thread::LogInfo(std::string message)
 {
   if(m_logger != nullptr)
   {
@@ -93,7 +93,7 @@ void Neos::ThreadAdapter::LogInfo(std::string message)
   }
 }
 
-void Neos::ThreadAdapter::LogError(std::string message)
+void Neos::Thread::LogError(std::string message)
 {
   if(m_logger != nullptr)
   {

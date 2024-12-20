@@ -1,2 +1,3 @@
-add_subdirectory(threadProxy)
-add_subdirectory(threadAdapter)
+add_subdirectory(proxies)
+add_subdirectory(thread)
+add_subdirectory(mutex)

@@ -1,19 +1,14 @@
 #pragma once
 
 #include "SysDefines.hpp"
-
-#if TARGET == LINUX
-
-#include "FileProxy_linux.h"
-
-#endif
-
+#include "Mutex.hpp"
 #include <string>
 
 namespace Neos
 {
 
   const uint8_t MAX_LOG_MESSAGE_LENGHT = 255;
+  const uint8_t MAX_DATE_LENGHT = 40;
 
   enum ELogLevel 
   {
@@ -52,7 +47,6 @@ namespace Neos
 
       std::string m_filename;
       std::string m_path;
-      FileDescriptor* m_fileDescriptor;
       ELogLevel m_logLevel;
   };
 }

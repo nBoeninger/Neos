@@ -1,9 +1,12 @@
 #include "FileHandler.hpp"
 
-Neos::FileHandler::FileHandler(const char* filename) :
-  m_fileDescriptor(FileProxy_open(filename, "a"))
+Neos::FileHandler::FileHandler(const char* filename)
 {
-
+  m_fileDescriptor = FileProxy_open(filename, "a");
+  if (m_fileDescriptor == nullptr)
+  {
+    // TODO: check error
+  }
 }
 
 Neos::FileHandler::~FileHandler()

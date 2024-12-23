@@ -3,116 +3,81 @@
 #include "SysDefines.hpp"
 #include "Timing.h"
 
+#include "cstring"
+#include <cstdarg>
+
 namespace Neos
 {
 
-  Logging::Logging(std::string filename, std::string path, ELogLevel logLevel) : m_filename(filename), m_path(path), m_logLevel(logLevel)
+  Logging::Logging(const char* filename, const char* path, ELogLevel logLevel) : m_path(path), m_logLevel(logLevel)
   {
-    Initialize();
+    Initialize(filename);
   }
 
-  Logging::Logging(std::string filename, ELogLevel logLevel) : m_filename(filename), m_path(LOGGING_PATH), m_logLevel(logLevel)
+  Logging::Logging(const char* filename, ELogLevel logLevel) : m_path(LOGGING_PATH), m_logLevel(logLevel)
   {
-    Initialize();
+    Initialize(filename);
   }
 
-  void Logging::Initialize()
+  void Logging::Initialize(const char* filename)
   {
-    m_filename.append(".log");
-    m_path.append(m_filename);
-  }
-
-  void Logging::Log(Neos::ELogLevel level, std::string logMessage, std::string contextName)
-  {
-    #if LOGGING
-      if (level >= m_logLevel)
-      {
-        Neos::Mutex lock = Neos::Mutex();
-        std::string formatedLogMessage = FormatMessage(logMessage, contextName, level);
-        WriteToFile(formatedLogMessage);
-        
-        #if LOGGING_STREAM
-          WriteToStream(formatedLogMessage);
-        #endif
-
-      }
-    #endif
-  }
-
-  void Logging::Debug(std::string logMessage, std::string contextName)
-  {
-    Log(ELogLevel::DEBUG, logMessage, contextName);
-  }
-
-  void Logging::Info(std::string logMessage, std::string contextName)
-  {
-    Log(ELogLevel::INFO, logMessage, contextName);
-  }
-
-  void Logging::Warning(std::string logMessage, std::string contextName)
-  {
-    Log(ELogLevel::WARNING, logMessage, contextName);
-  }
-
-  void Logging::Error(std::string logMessage, std::string contextName)
-  {
-    Log(ELogLevel::ERROR, logMessage, contextName);
-  }
-
-  void Logging::Critical(std::string logMessage, std::string contextName)
-  {
-    Log(ELogLevel::CRITICAL, logMessage, contextName);
+    if (strlen(m_filename) < MAX_FILE_NAME_LENGHT)
+    {
+      sprintf(m_filename, "%s.log", filename);
+      m_path.append(m_filename);
+      int t = 0;
+    }
   }
 
   void Logging::WriteToFile(std::string logMessage)
   {
     Neos::FileHandler handler = Neos::FileHandler(m_path.c_str());
-    handler.Write(logMessage.c_str());
+    handler.Write(logMessage);
   }
 
-  void Logging::WriteToStream(std::string logMessage)
+  void Logging::WriteToStream(const char* logMessage)
   {
     //TODO: fill me
   }
 
-  std::string Logging::FormatMessage(std::string logMessage, std::string contextName, ELogLevel logLevel)
+  std::string Logging::FormatMessage(const char* logMessage, const char* contextName, ELogLevel logLevel)
   {
     std::string formatedLogMessage;
-    char buffer[MAX_LOG_MESSAGE_LENGHT];
-    std::string logLevelText;
+    char buffer[MAX_TOTAL_LOG_MESSAGE_LENGHT];
+    char logLevelText[MAX_LEVEL_LENGHT];
+    char currentTime[MAX_DATE_LENGHT];
 
     switch (logLevel)
     {
     case ELogLevel::DEBUG:
     {
-      logLevelText = "Debug";
+      sprintf(logLevelText, "Debug");
     }
     break;
     case ELogLevel::INFO: 
     {
-      logLevelText = "Info";  
+      sprintf(logLevelText, "Info");
     }
     break;
     case ELogLevel::WARNING:
     {
-      logLevelText = "Warning";
+      sprintf(logLevelText, "Warning");
     }
     break;
     case ELogLevel::ERROR:
     {
-      logLevelText = "Error";
+      sprintf(logLevelText, "Error");
     }
     break;
     case ELogLevel::CRITICAL:
     {
-      logLevelText = "Critical";
+      sprintf(logLevelText, "Critical");
     }
     break;
     default:
       break;
     }
 
-    char currentTime[MAX_DATE_LENGHT];
     GetCurrentDate(currentTime);
     std::string date = currentTime;
     int pos = date.find("\n");
@@ -121,9 +86,8 @@ namespace Neos
       date.erase(pos);
     }
 
-    sprintf(buffer, "%s - %s - %s: %s\n", date.c_str(), contextName.c_str(), logLevelText.c_str(), logMessage.c_str());
-    formatedLogMessage.append(buffer);
-    
+    sprintf(buffer, "%s - %s - %s: %s\n", date.c_str(), contextName, logLevelText, logMessage);
+    formatedLogMessage = buffer;
     return formatedLogMessage;
   }
 }

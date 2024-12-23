@@ -33,8 +33,12 @@ namespace Neos
       static FunctionReturn_t RunFunction(void* context);
 
     protected:
-      void LogInfo(std::string message);
-      void LogError(std::string message);
+
+      template<typename... Args>
+      void LogInfo(const char* message, Args&& ...args);
+      
+      template<typename... Args>
+      void LogError(const char* message, Args&& ...args);
 
     private:
 
@@ -47,4 +51,22 @@ namespace Neos
       Logging* m_logger;
   };
 
+  template<typename... Args>
+  void Thread::LogInfo(const char* message, Args&& ...args)
+  {
+    if(m_logger != nullptr)
+    {
+      m_logger -> Info(m_threadName, message, args...);
+    }
+  }
+
+  template<typename... Args>
+  void Thread::LogError(const char* message, Args&& ...args)
+  {
+    int t = 0;
+    if(m_logger != nullptr)
+    {
+      m_logger -> Error(m_threadName, message, args...);
+    }
+  }
 }

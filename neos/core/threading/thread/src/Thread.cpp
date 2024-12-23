@@ -24,33 +24,25 @@ void Neos::Thread::CreateThreadParameter()
   int ret = ThreadProxy_initParameter(&m_parameter);
   if (ret != 0)
   {
-    char buffer[60];
-    sprintf(buffer, "Init thread parameter failed with error code: %d", ret);
-    LogError(buffer);
+    LogError("Init thread parameter failed with error code: %d", ret);
   }
 
   ret = ThreadProxy_setSchedPolicy(m_attributes.schedulingPolicy, &m_parameter);
   if (ret != 0)
   {
-    char buffer[60];
-    sprintf(buffer, "Set scheduling policy failed with error code: %d", ret);
-    LogError(buffer);
+    LogError("Set scheduling policy failed with error code: %d", ret);
   }
 
   ret = ThreadProxy_setSchedPriority(m_attributes.schedulingPriority, &m_parameter);
   if (ret != 0)
   {
-    char buffer[60];
-    sprintf(buffer, "Set scheduling priority failed with error code: %d", ret);
-    LogError(buffer);
+    LogError("Set scheduling priority failed with error code: %d", ret);
   }
 
   ret = ThreadProxy_setStackSize(m_attributes.stackSize, &m_parameter);
   if (ret != 0)
   {
-    char buffer[60];
-    sprintf(buffer, "Set stacksize failed with error code: %d", ret);
-    LogError(buffer);
+    LogError("Set stacksize failed with error code: %d, %f", ret, 2.6);
   }
 }
 
@@ -64,9 +56,7 @@ void Neos::Thread::Start()
   int ret = ThreadProxy_create(&m_threadHandler, Neos::Thread::RunFunction, this, &m_parameter);
   if (ret != 0)
   {
-    char buffer[60];
-    sprintf(buffer, "Creating thread failed with error code: %d", ret);
-    LogError(buffer);
+    LogError("Creating thread failed with error code: %d", ret);
   }
   else
   {
@@ -83,20 +73,4 @@ FunctionReturn_t Neos::Thread::RunFunction(void* context)
 {
   Neos::Thread* self =  static_cast<Neos::Thread*>(context);
   return nullptr;
-}
-
-void Neos::Thread::LogInfo(std::string message)
-{
-  if(m_logger != nullptr)
-  {
-    m_logger -> Info(message, m_threadName);
-  }
-}
-
-void Neos::Thread::LogError(std::string message)
-{
-  if(m_logger != nullptr)
-  {
-    m_logger -> Error(message, m_threadName);
-  }
 }
